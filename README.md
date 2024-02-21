@@ -1,2 +1,2 @@
-CourseWork for Virtual Environment
+CourseWork for Virtual Environment     
 A VR game themed Potion Factory
