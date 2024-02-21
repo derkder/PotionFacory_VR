@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Samples/Ubiq/1.0.0-pre.3/Demo (XRI)/Demo.unity
+    guid: 2de505d34345ab340bdde30d419b24eb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 81edbaf92cef0ff4f85cce8859eb7285, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 195f655bba4cf36429dc59085e582d76, type: 2}
