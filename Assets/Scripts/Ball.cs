@@ -80,6 +80,7 @@ public class Ball : MonoBehaviour
     {
         var message = m.FromJson<Message>();
         //想试一下这行注释掉了本人还能不能看到移动，但是断连了所以回家
+        //试了可以
         transform.localPosition = message.position;
         if(message.token > token)
         {
