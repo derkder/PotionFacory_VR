@@ -1040,6 +1040,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9014170783705847996, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
   m_PrefabInstance: {fileID: 1220451497}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1220451502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9014170783705847993, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 1220451497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caff514de9b15ad48ab85dcff5508221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1305422829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6628,6 +6639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleEffect: {fileID: 1590404797}
   model: {fileID: 1659526665}
+  rightController: {fileID: 1220451502}
 --- !u!1 &1787259047 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3471343859196315090, guid: 895f6f3c2d334633b5800312285058d2, type: 3}

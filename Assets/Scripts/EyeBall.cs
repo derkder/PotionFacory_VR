@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class EyeBall : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class EyeBall : MonoBehaviour
     private GameObject particleEffect;
     [SerializeField]
     private GameObject model;
+    [SerializeField]
+    private ActionBasedController rightController;
 
     void Start()
     {
@@ -29,6 +32,13 @@ public class EyeBall : MonoBehaviour
     {
         if (other.transform.CompareTag("wand"))
         {
+            if (rightController)
+            {
+                if(rightController.SendHapticImpulse(0.5f, 1))
+                {
+                    print("success");
+                }
+            }
             model.SetActive(false);
             particleEffect.SetActive(true);
         }
