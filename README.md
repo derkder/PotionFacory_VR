@@ -8,3 +8,4 @@ question list:
 2、 我都set deacticate了，仍旧一推手柄有长射线，一按grip ray interator有active了，怎么个事儿！！！！（交互射线，一勾上XR Input Modality Manager就会有射线，怎么个事儿 。）         
 3、一移动就会视角缩小，怎么个事儿   
 4、那个黑黑的应用连不上啊~    
+5\ 再申请一个设备5
