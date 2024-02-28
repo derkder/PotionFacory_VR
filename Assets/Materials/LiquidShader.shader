@@ -81,7 +81,9 @@ Shader "Custom/LiquidBottle"
 
                 //这里处理的一点儿也不好
                 //本来想自己用比率做的，但是想想就有很多问题我还是先凑合一下吧
-                o.fillEdge=mul(unity_ObjectToWorld,v.vertex.xyz).y+_FillAmount - _WorldCoordY;
+                //float3x3修正世界空间坐标挂钩的问题
+                o.fillEdge=mul((float3x3)unity_ObjectToWorld,v.vertex.xyz).y+_FillAmount;
+                //o.fillEdge=mul(unity_ObjectToWorld,v.vertex.xyz).y+_FillAmount;
                 o.normal=v.normal;
                 o.viewDir=normalize(ObjSpaceViewDir(v.vertex));
                 return o;

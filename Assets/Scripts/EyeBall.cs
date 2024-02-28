@@ -7,17 +7,17 @@ public class EyeBall : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    private GameObject particleEffect;
+    private GameObject _particleEffect;
     [SerializeField]
-    private GameObject model;
+    private GameObject _model;
     [SerializeField]
-    private ActionBasedController rightController;
+    private ActionBasedController _rightController;
 
     void Start()
     {
-        if (particleEffect)
+        if (_particleEffect)
         {
-            particleEffect.SetActive(false);
+            _particleEffect.SetActive(false);
         }
     }
 
@@ -32,15 +32,15 @@ public class EyeBall : MonoBehaviour
     {
         if (other.transform.CompareTag("wand"))
         {
-            if (rightController)
+            if (_rightController)
             {
-                if(rightController.SendHapticImpulse(0.5f, 1))
+                if(_rightController.SendHapticImpulse(0.5f, 1))
                 {
                     print("success");
                 }
             }
-            model.SetActive(false);
-            particleEffect.SetActive(true);
+            _model.SetActive(false);
+            _particleEffect.SetActive(true);
         }
     }
 

@@ -7,39 +7,39 @@ public class StirStick : MonoBehaviour
 {
     // 从Inspector中分配InputActionAsset
     [SerializeField] 
-    private InputActionAsset actionAsset;
+    private InputActionAsset _actionAsset;
     [SerializeField]
-    private GameObject potParticle;
+    private GameObject _potParticle;
 
-    private InputAction selectAction;
-    private Vector3 lastPosition;
-    private bool isGripped;
-    private float timeStart = 0;
-    private float accumulateTime = 0;
+    private InputAction _selectAction;
+    private Vector3 _lastPosition;
+    private bool _isGripped;
+    private float _timeStart = 0;
+    private float _accumulateTime = 0;
 
     private void Awake()
     {
-        selectAction = actionAsset.FindActionMap("XRI RightHand Interaction").FindAction("Select");
-        if (selectAction == null)
+        _selectAction = _actionAsset.FindActionMap("XRI RightHand Interaction").FindAction("Select");
+        if (_selectAction == null)
         {
             Debug.LogError("Select action not found.");
             return;
         }
 
-        selectAction.performed += _ => isGripped = true;
-        selectAction.canceled += _ => isGripped = false;
+        _selectAction.performed += _ => _isGripped = true;
+        _selectAction.canceled += _ => _isGripped = false;
     }
 
     private void Update()
     {
-        if (isGripped)
+        if (_isGripped)
         {
             Vector3 currentPosition = transform.position;
 
-            if (Vector3.Distance(currentPosition, lastPosition) > 0.1f
+            if (Vector3.Distance(currentPosition, _lastPosition) > 0.1f
                     && this.transform.rotation.x >= -50 && this.transform.rotation.x <= 50
                     && this.transform.rotation.z >= -50 && this.transform.rotation.z <= 50
-                        && Vector3.Distance(this.transform.position, potParticle.transform.position) < 2) // 检查手柄是否有足够的移动
+                        && Vector3.Distance(this.transform.position, _potParticle.transform.position) < 2) // 检查手柄是否有足够的移动
             {
                 isStiring();
             }
@@ -48,7 +48,7 @@ public class StirStick : MonoBehaviour
                 stopStiring();
             }
             // 更新最后的位置
-            lastPosition = currentPosition;
+            _lastPosition = currentPosition;
         }
         else
         {
@@ -58,27 +58,27 @@ public class StirStick : MonoBehaviour
 
     private void isStiring()
     {
-        timeStart = Time.time;
+        _timeStart = Time.time;
         Debug.Log("isStiring");
-        potParticle.SetActive(true);
+        _potParticle.SetActive(true);
     }
 
     private void stopStiring()
     {
-        if (Time.time - timeStart > 1)
+        if (Time.time - _timeStart > 1)
         {
             Debug.Log("notStiring");
-            potParticle.SetActive(false);
+            _potParticle.SetActive(false);
         }  
     }
 
     private void OnEnable()
     {
-        selectAction.Enable();
+        _selectAction.Enable();
     }
 
     private void OnDisable()
     {
-        selectAction.Disable();
+        _selectAction.Disable();
     }
 }
