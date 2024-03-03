@@ -35,7 +35,7 @@ public class PotionPot : MonoBehaviour
         _material = _rend.material;
         _material.SetFloat("_FillAmount", _maxAmont);
     }
-
+    
     // Update is called once per frame
     void Update()
     {

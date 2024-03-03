@@ -27,6 +27,10 @@ namespace Ubiq.Samples
         private void Start()
         {
             spawnManager = NetworkSpawnManager.Find(this);
+            if (null == spawnManager)
+            {
+                print("_spawnManager == null");
+            }
             interactable = GetComponent<XRGrabInteractable>();
 
             interactable.activated.AddListener(XRGrabInteractable_Activated);

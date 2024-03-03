@@ -20927,7 +20927,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 349597519}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -21748,6 +21748,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6970544692257452159, guid: 5b7143abb39c6cf478c5c6f44abe5d90, type: 3}
       propertyPath: potParticle
+      value: 
+      objectReference: {fileID: 696807127}
+    - target: {fileID: 6970544692257452159, guid: 5b7143abb39c6cf478c5c6f44abe5d90, type: 3}
+      propertyPath: _actionAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 6970544692257452159, guid: 5b7143abb39c6cf478c5c6f44abe5d90, type: 3}
+      propertyPath: _potParticle
       value: 
       objectReference: {fileID: 696807127}
     m_RemovedComponents: []

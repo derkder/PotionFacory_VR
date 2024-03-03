@@ -52,5 +52,8 @@ public class GameManager : Singleton<GameManager>
 #endif
         Application.Quit();
     }
+
+
+
 }
     

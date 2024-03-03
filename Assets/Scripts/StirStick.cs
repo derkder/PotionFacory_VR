@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Ubiq.Spawning;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class StirStick : MonoBehaviour
 {
+    public GameObject potParticlePrefab;
+
     // 从Inspector中分配InputActionAsset
+    [SerializeField]
+    private GameObject _pot;
     [SerializeField] 
     private InputActionAsset _actionAsset;
-    [SerializeField]
-    private GameObject _potParticle;
 
     private InputAction _selectAction;
     private Vector3 _lastPosition;
     private bool _isGripped;
     private float _timeStart = 0;
     private float _accumulateTime = 0;
+    
+    private NetworkSpawnManager _spawnManager;
 
     private void Awake()
     {
@@ -30,6 +36,11 @@ public class StirStick : MonoBehaviour
         _selectAction.canceled += _ => _isGripped = false;
     }
 
+    private void Start()
+    {
+        _spawnManager = NetworkSpawnManager.Find(this);
+    }
+
     private void Update()
     {
         if (_isGripped)
@@ -39,7 +50,7 @@ public class StirStick : MonoBehaviour
             if (Vector3.Distance(currentPosition, _lastPosition) > 0.1f
                     && this.transform.rotation.x >= -50 && this.transform.rotation.x <= 50
                     && this.transform.rotation.z >= -50 && this.transform.rotation.z <= 50
-                        && Vector3.Distance(this.transform.position, _potParticle.transform.position) < 2) // 检查手柄是否有足够的移动
+                        && Vector3.Distance(this.transform.position, _pot.transform.position) < 1f) // 检查手柄是否有足够的移动
             {
                 isStiring();
             }
@@ -60,7 +71,12 @@ public class StirStick : MonoBehaviour
     {
         _timeStart = Time.time;
         Debug.Log("isStiring");
-        _potParticle.SetActive(true);
+        //_potParticle.SetActive(true);
+        //这里Room不行，Peer可以}
+        var go = _spawnManager.SpawnWithPeerScope(potParticlePrefab);
+        var potParticle = go.GetComponent<PotParticle>();
+        potParticle.transform.position = transform.position;
+
     }
 
     private void stopStiring()
@@ -68,7 +84,8 @@ public class StirStick : MonoBehaviour
         if (Time.time - _timeStart > 1)
         {
             Debug.Log("notStiring");
-            _potParticle.SetActive(false);
+            //_potParticle.SetActive(false);
+            
         }  
     }
 
