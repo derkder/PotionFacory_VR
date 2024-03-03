@@ -10,3 +10,7 @@ question list:
 new ideas:  
 加个设计，操作错了，就爆炸着火，要紧急灭火    
 采草药的时候干脆换个scene
+
+todo:  
+xhy:  
+改questionlist的2&试图同步除了transform以外的东西，例如材质的变化&连流程
