@@ -70,7 +70,7 @@ public class StirStick : MonoBehaviour
     private void isStiring()
     {
         _timeStart = Time.time;
-        Debug.Log("isStiring");
+        //Debug.Log("isStiring");
         //_potParticle.SetActive(true);
         //这里Room不行，Peer可以}
         var go = _spawnManager.SpawnWithPeerScope(potParticlePrefab);
@@ -83,7 +83,7 @@ public class StirStick : MonoBehaviour
     {
         if (Time.time - _timeStart > 1)
         {
-            Debug.Log("notStiring");
+            //Debug.Log("notStiring");
             //_potParticle.SetActive(false);
             
         }  

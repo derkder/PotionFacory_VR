@@ -6,28 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    //场景名称列表
-    private List<string> levelScenes = new List<string> {
-        "Tutorial_0",
-        "Tutorial_1",
-        "Tutorial_2",
-        "Level_1",
-        "Level_2",
-        "Level_3",
-        "Level_4",
-        "Level_5",
-        "Level_6",
-        "Level_7"
-    };
+    //private GameObject _globalLevelCanvas;
 
-    public int levelProgress = -1;
+    public bool IsEditorModeOn;
+    public bool EnableWellColliderDetection;
+    //public event Action TransformToForest;
 
-    private GameObject _globalLevelCanvas;
-
-    public bool isEditorModeOn;
-    public bool enableWellColliderDetection;
-
-    public event Action OnLevelPass;
+    [SerializeField]
+    private GameObject _player;
 
     public new void Awake()
     {
@@ -37,12 +23,6 @@ public class GameManager : Singleton<GameManager>
     public void Update()
     {
 
-    }
-
-
-    private void SceneChange(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
     }
 
     public void ExitGame()
