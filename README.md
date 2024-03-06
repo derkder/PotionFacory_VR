@@ -10,6 +10,8 @@ question list:
 new ideas:  
 加个设计，操作错了，就爆炸着火，要紧急灭火    
 采草药的时候干脆换个scene
+不要做线性的，做有自由度的
+可以搞一本草药的书
 
 todo:  
 xhy:  
