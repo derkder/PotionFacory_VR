@@ -74,6 +74,7 @@ public class GrabObjTransSync : MonoBehaviour
         {
             isOwner = false;
             token = message.token;
+            Debug.Log("WandToken" +  token);
             GetComponent<Rigidbody>().isKinematic = true;
         }
         Debug.Log(gameObject.name + " Updated");
