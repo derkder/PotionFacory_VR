@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EzySlice;
 
-
+//todo:速度不够的时候物理交互，速度够的时候斩断
 public class sliceDemo : MonoBehaviour
 {
     public Material CMaterial;
