@@ -24,7 +24,7 @@ public class GrabObjTransSync : MonoBehaviour
         interactable.lastSelectExited.AddListener(OnDropped);
         context = NetworkScene.Register(this);
         token = Random.Range(1, 10000);
-        _isKinematic = GetComponent<Rigidbody>().isKinematic;
+        //_isKinematic = GetComponent<Rigidbody>().isKinematic;
         isOwner = true;
     }
 
@@ -38,7 +38,7 @@ public class GrabObjTransSync : MonoBehaviour
     {
         Debug.Log("Dropped");
         transform.parent = parent;
-        GetComponent<Rigidbody>().isKinematic = _isKinematic;
+        //GetComponent<Rigidbody>().isKinematic = _isKinematic;
 
     }
 
