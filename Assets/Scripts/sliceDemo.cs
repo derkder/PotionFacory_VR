@@ -2,49 +2,131 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EzySlice;
+using UnityEngine.XR.Interaction.Toolkit;
+using Org.BouncyCastle.Crypto.Engines;
+using Ubiq.Spawning;
+using Ubiq.Messaging;
 
-//todo:速度不够的时候物理交互，速度够的时候斩断
-public class sliceDemo : MonoBehaviour
+public class SliceDemo : MonoBehaviour
 {
-    public Material CMaterial;
+    //切割速度以及切割点
     Vector3 oldPoint;
     Vector3 velocity;
     
-    // Start is called before the first frame update
+    NetworkContext context;
+    private NetworkSpawnManager spawnManager;//管理网络生成的对象
+    public Transform spawnPoint;//生成prefab的位置和旋转
+    public GameObject herb_frag_prefab;
+    public GameObject original_herb;
+    public static int count=1;
     
+
+
+    bool isFinished;
+   
+
     void Start()
     {
-        
+        spawnManager = NetworkSpawnManager.Find(this);
+        //manager.OnSpawned.AddListener(Manager_OnSpawned);
+        isFinished=false;
     }
 
-    // Update is called once per frame
     void Update()
-    {
-        if(transform.position!=oldPoint){
-            velocity=(transform.position-oldPoint)/Time.deltaTime;
-            oldPoint=transform.position;
+    {   
+        //获取切割速度和切割点
+        if(transform.position != oldPoint){
+            velocity = (transform.position - oldPoint) / Time.deltaTime;
+            oldPoint = transform.position;
         }
-        
-    }
-    private void  OnTriggerEnter(Collider other) {
-        //SlicedHull slicedHull=other.gameObject.Slice(transform.position,transform.up);
-        SlicedHull slicedHull=other.gameObject.Slice(transform.position,new Vector3(velocity.y,velocity.x,velocity.z));
-        if(slicedHull!=null){
-            Debug.Log("切割！");
-            //切面以material作为材质
-            GameObject lower=slicedHull.CreateLowerHull(other.gameObject,CMaterial);
-            GameObject upper=slicedHull.CreateUpperHull(other.gameObject,CMaterial);
-            //赋予刚体属性
-            lower.AddComponent<Rigidbody>();
-            lower.AddComponent<MeshCollider>().convex=true;
-            lower.GetComponent<Rigidbody>().AddExplosionForce(500,other.gameObject.transform.position,20);
-            upper.AddComponent<Rigidbody>();
-            upper.AddComponent<MeshCollider>().convex=true;
-            upper.GetComponent<Rigidbody>().AddExplosionForce(500,other.gameObject.transform.position,20);
-            Destroy(other.gameObject);
 
-        }
-        
         
     }
+    private Material GetCutMaterial(GameObject objectToCut)
+    {
+        Renderer renderer = objectToCut.GetComponent<Renderer>();
+        return renderer ? renderer.material : null;
+    }
+    private void OnTriggerEnter(Collider other) {
+        Material CMaterial = GetCutMaterial(other.gameObject);
+        SlicedHull slicedHull = other.gameObject.Slice(transform.position, new Vector3(velocity.y, velocity.x, velocity.z));
+       
+        if(slicedHull!=null){
+            //isFinished=true;
+            
+            Debug.Log("切割"+count);
+            Debug.Log(count);
+            if(count==0){
+            Debug.Log("不许切了");
+            count--;
+            original_herb.SetActive(false);
+            var go = spawnManager.SpawnWithPeerScope(herb_frag_prefab);
+            Debug.Log("generate");
+            go.transform.position = spawnPoint.position;
+            go.transform.rotation=spawnPoint.rotation;
+            
+            }
+            if(count>0){
+            count--;
+            //新生成的碎片是复制出的旋转缩小版的original herb
+            GameObject fragment = Instantiate(other.gameObject);
+            Debug.Log("copy~"+count);
+            fragment.name = "fragment"+count;
+            //但是虽然是复制的，不许它有子节点，不许它grabable，不许是碰撞体
+            foreach (Transform child in fragment.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            XRGrabInteractable fragment_grabInteractable = fragment.GetComponent<XRGrabInteractable>();
+            if (fragment_grabInteractable != null)
+            {
+                Destroy(fragment_grabInteractable);
+            }
+            MeshRenderer fragment_Renderer = fragment.GetComponent<MeshRenderer>();
+            if (fragment_Renderer != null)
+            {
+                fragment_Renderer.material = CMaterial;
+            }
+            Collider fragment_collider=fragment.GetComponent<Collider>();
+             if (fragment_collider != null)
+            {
+                Destroy(fragment_collider);
+            }
+            //获取rigidbody为碎片添加一下爆炸效果
+            //爆炸发生的位置在fragment的位置附近随机偏移
+            Rigidbody fragment_rigidBody=fragment.GetComponent<Rigidbody>();
+            float randomExplosionForce = Random.Range(1f, 6f);
+            Vector3 explosionOffset = new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f));
+            Vector3 explosionPosition = fragment.transform.position + explosionOffset;
+            fragment_rigidBody.AddExplosionForce(randomExplosionForce, explosionPosition, 10);
+            
+            //将碎片的大小设置为原来的一半
+            fragment.transform.localScale = other.transform.localScale * Random.Range(0.2f, 0.5f);
+            //随机旋转一下
+            fragment.transform.eulerAngles = new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f));
+            other.transform.eulerAngles = -other.transform.eulerAngles;
+            //将碎片的父节点设为原来的herb
+            fragment.transform.parent = other.transform;
+            //original herb也位置发生一些变化吧
+            other.transform.localScale *= 0.8f;
+            other.transform.position +=new Vector3(Random.Range(-0.01f, 0.03f), Random.Range(-0.01f, 0.02f), Random.Range(-0.01f, 0.01f));
+            other.transform.eulerAngles = new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f));
+            spawnPoint=other.transform;
+            original_herb=other.gameObject;
+            } 
+        }
+
+
+
+    }
+    
+    public void SpawnWithRoomScope(int prefabindex)
+        {
+            if (spawnManager)
+            {
+                spawnManager.SpawnWithRoomScope(spawnManager.catalogue.prefabs[prefabindex]);
+            }
+        }
+    
 }
+
