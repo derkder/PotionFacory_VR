@@ -16,9 +16,9 @@ public class SliceDemo : MonoBehaviour
     NetworkContext context;
     private NetworkSpawnManager spawnManager;//管理网络生成的对象
     public Transform spawnPoint;//生成prefab的位置和旋转
-    public GameObject herb_frag_prefab;
+    public GameObject[] herb_frag_prefab;
     public GameObject original_herb;
-    public static int count=1;
+    public static int count=10;
     
 
 
@@ -47,6 +47,26 @@ public class SliceDemo : MonoBehaviour
         Renderer renderer = objectToCut.GetComponent<Renderer>();
         return renderer ? renderer.material : null;
     }
+    // 计算并返回网格的中心点
+    public static Vector3 CalculateMeshCentroid(Mesh mesh)
+    {
+        // 获取网格的所有顶点
+        Vector3[] vertices = mesh.vertices;
+
+        // 用于计算所有顶点坐标和的变量
+        Vector3 sumOfVertices = Vector3.zero;
+
+        // 遍历所有顶点，累加它们的坐标
+        foreach (Vector3 vertex in vertices)
+        {
+            sumOfVertices += vertex;
+        }
+
+        // 计算顶点坐标的平均值，得到中心点
+        Vector3 centroid = sumOfVertices / vertices.Length;
+
+        return centroid;
+    }
     private void OnTriggerEnter(Collider other) {
         Material CMaterial = GetCutMaterial(other.gameObject);
         SlicedHull slicedHull = other.gameObject.Slice(transform.position, new Vector3(velocity.y, velocity.x, velocity.z));
@@ -60,10 +80,35 @@ public class SliceDemo : MonoBehaviour
             Debug.Log("不许切了");
             count--;
             original_herb.SetActive(false);
-            var go = spawnManager.SpawnWithPeerScope(herb_frag_prefab);
+
+            //var go = spawnManager.SpawnWithPeerScope(herb_frag_prefab);
+            
+            // 检查触发器碰撞的游戏对象名称
+            switch (other.gameObject.name)
+            {
+                case "1":
+                    var go1 = spawnManager.SpawnWithPeerScope(herb_frag_prefab[0]);
+                    go1.transform.position = spawnPoint.position;
+                    go1.transform.rotation=spawnPoint.rotation;
+                    
+                    break;
+                case "2":
+                    var go2 = spawnManager.SpawnWithPeerScope(herb_frag_prefab[1]);
+                    go2.transform.position = spawnPoint.position;
+                    go2.transform.rotation=spawnPoint.rotation;
+                    break;
+                case "3":
+                    var go3 = spawnManager.SpawnWithPeerScope(herb_frag_prefab[2]);
+                    go3.transform.position = spawnPoint.position;
+                    go3.transform.rotation=spawnPoint.rotation;
+                    break;
+                default:
+                    Debug.Log("No matching case found.");
+                    break;
+            };
             Debug.Log("generate");
-            go.transform.position = spawnPoint.position;
-            go.transform.rotation=spawnPoint.rotation;
+            // go.transform.position = spawnPoint.position;
+            // go.transform.rotation=spawnPoint.rotation;
             
             }
             if(count>0){
@@ -98,6 +143,7 @@ public class SliceDemo : MonoBehaviour
             float randomExplosionForce = Random.Range(1f, 6f);
             Vector3 explosionOffset = new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f));
             Vector3 explosionPosition = fragment.transform.position + explosionOffset;
+            //Vector3 explosionPosition = CalculateMeshCentroid(other.gameObject.GetComponent<MeshFilter>().mesh);
             fragment_rigidBody.AddExplosionForce(randomExplosionForce, explosionPosition, 10);
             
             //将碎片的大小设置为原来的一半

@@ -1,0 +1,396 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4341986747252400405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5555340652234365096}
+  m_Layer: 0
+  m_Name: herb_fragment3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5555340652234365096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4341986747252400405}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5169752, y: 0.213345, z: 2.5635562}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2787151259134362116}
+  - {fileID: 8558837239317859903}
+  - {fileID: 2701340539113752611}
+  - {fileID: 726090844086106255}
+  - {fileID: 7927260859531619633}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1583732422989326044
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5555340652234365096}
+    m_Modifications:
+    - target: {fileID: 2299399845303140979, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_Name
+      value: Silk Vein B5 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.88822895
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.3102246
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1217887
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.52397525
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.20234501
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.5335562
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.89940745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.1126359
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.16197944
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.39005396
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -19.206
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -12.445
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -44.777
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+--- !u!4 &726090844086106255 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+  m_PrefabInstance: {fileID: 1583732422989326044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4126679019982347351
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5555340652234365096}
+    m_Modifications:
+    - target: {fileID: 2299399845303140979, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_Name
+      value: Silk Vein B5 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.38128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.38128006
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.38127998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6389752
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.213345
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.5635562
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9129974
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.06431795
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.1542054
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.37218222
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.152
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 19.236
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 44.382
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+--- !u!4 &2787151259134362116 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+  m_PrefabInstance: {fileID: 4126679019982347351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4221013119781738096
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5555340652234365096}
+    m_Modifications:
+    - target: {fileID: 2299399845303140979, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_Name
+      value: Silk Vein B5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5169752
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.213345
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.5635562
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+--- !u!4 &2701340539113752611 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+  m_PrefabInstance: {fileID: 4221013119781738096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7578998412529061996
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5555340652234365096}
+    m_Modifications:
+    - target: {fileID: 2299399845303140979, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_Name
+      value: Silk Vein B5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.38128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.38128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.38128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.3699752
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.213345
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.5635562
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+--- !u!4 &8558837239317859903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+  m_PrefabInstance: {fileID: 7578998412529061996}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8208463678452478818
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5555340652234365096}
+    m_Modifications:
+    - target: {fileID: 2299399845303140979, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_Name
+      value: Silk Vein B5 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.82322
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.82322
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.82321995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5169752
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.213345
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.5635562
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.945553
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.2660693
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.16460817
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.08967086
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 28.271
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -335.944
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 16.978
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+--- !u!4 &7927260859531619633 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2299399845303443027, guid: f64416478697b3e42b9e58a3a6baf9f0, type: 3}
+  m_PrefabInstance: {fileID: 8208463678452478818}
+  m_PrefabAsset: {fileID: 0}
