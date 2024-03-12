@@ -19,7 +19,7 @@ public class StirStick : MonoBehaviour
     private Vector3 _lastPosition;
     private bool _isGripped;
     private float _timeStart = 0;
-    private float _accumulateTime = 0;
+    //private float _accumulateTime = 0;
     
     private NetworkSpawnManager _spawnManager;
 
@@ -39,6 +39,11 @@ public class StirStick : MonoBehaviour
     private void Start()
     {
         _spawnManager = NetworkSpawnManager.Find(this);
+        if (_spawnManager == null)
+        {
+            Debug.LogError("Spawn Manager not found.");
+            return;
+        }
     }
 
     private void Update()
