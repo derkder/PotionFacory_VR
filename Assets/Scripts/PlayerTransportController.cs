@@ -6,26 +6,19 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class PlayerTransportController : MonoBehaviour
 {
-    [SerializeField]
-    private InputActionAsset _actionAsset;
-    private InputAction _buttonXPressed;
-    private InputAction _buttonYPressed;
 
     [SerializeField]
     private GameObject _roomSpawnPoint;
     [SerializeField]
     private GameObject _forestSpawnPoint;
 
-    private void Awake()
+    private void Start()
     {
-        _buttonXPressed = _actionAsset.FindActionMap("XRI LeftHand").FindAction("XButton");
-        _buttonYPressed = _actionAsset.FindActionMap("XRI LeftHand").FindAction("YButton");
-
-        _buttonXPressed.performed += OnXButtonPressed;
-        _buttonYPressed.performed += OnYButtonPressed;
+        GameManager.Instance.TransportToRoom += () => transform.position = _roomSpawnPoint.transform.position;
+        GameManager.Instance.TransportToForest += () => transform.position = _forestSpawnPoint.transform.position;
     }
 
-    private void OnXButtonPressed(InputAction.CallbackContext context)
+    private void OnXButtonPressed()
     {
         transform.position = _roomSpawnPoint.transform.position;
     }
@@ -39,7 +32,7 @@ public class PlayerTransportController : MonoBehaviour
     private void OnDestroy()
     {
         // «Â¿Ì£¨±‹√‚ƒ⁄¥Ê–π¬©
-        _buttonXPressed.performed -= OnXButtonPressed;
-        _buttonYPressed.performed -= OnYButtonPressed;
+        //_buttonXPressed.performed -= OnXButtonPressed;
+        //_buttonYPressed.performed -= OnYButtonPressed;
     }
 }

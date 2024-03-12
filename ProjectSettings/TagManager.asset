@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - wand
+  - HerbA
+  - HerbB
+  - HerbC
   layers:
   - Default
   - TransparentFX

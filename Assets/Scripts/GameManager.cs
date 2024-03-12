@@ -4,16 +4,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//每个玩家一个
 public class GameManager : Singleton<GameManager>
 {
-    //private GameObject _globalLevelCanvas;
-
     public bool IsEditorModeOn;
     public bool EnableWellColliderDetection;
-    //public event Action TransformToForest;
-
-    [SerializeField]
+    public bool IsInForest;
+    public event Action TransportToForest;
+    public event Action TransportToRoom;
     private GameObject _player;
+
+    public void Transport()
+    {
+        if(!IsInForest)
+        {
+            IsInForest = true;
+            TransportToRoom?.Invoke();
+        }
+        else
+        {
+            IsInForest = false;
+            TransportToForest?.Invoke();
+        }
+    }
+
 
     public new void Awake()
     {

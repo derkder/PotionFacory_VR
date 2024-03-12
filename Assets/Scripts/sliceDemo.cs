@@ -18,7 +18,7 @@ public class SliceDemo : MonoBehaviour
     public Transform spawnPoint;//生成prefab的位置和旋转
     public GameObject[] herb_frag_prefab;
     public GameObject original_herb;
-    public static int count=10;
+    public static int count=4;
     
 
 
