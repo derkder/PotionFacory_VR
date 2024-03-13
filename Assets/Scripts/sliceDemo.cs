@@ -69,6 +69,12 @@ public class SliceDemo : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         Material CMaterial = GetCutMaterial(other.gameObject);
+        Rigidbody origin_rigidBody=other.gameObject.GetComponent<Rigidbody>();
+        if(origin_rigidBody!=null){
+            origin_rigidBody.isKinematic=true;
+            origin_rigidBody.useGravity=false;
+        }
+
         SlicedHull slicedHull = other.gameObject.Slice(transform.position, new Vector3(velocity.y, velocity.x, velocity.z));
        
         if(slicedHull!=null){
@@ -90,17 +96,20 @@ public class SliceDemo : MonoBehaviour
                     var go1 = spawnManager.SpawnWithPeerScope(herb_frag_prefab[0]);
                     go1.transform.position = spawnPoint.position;
                     go1.transform.rotation=spawnPoint.rotation;
+                    Debug.Log("生成了1的prefab");
                     
                     break;
                 case "2":
                     var go2 = spawnManager.SpawnWithPeerScope(herb_frag_prefab[1]);
                     go2.transform.position = spawnPoint.position;
                     go2.transform.rotation=spawnPoint.rotation;
+                    Debug.Log("生成了2的prefab");
                     break;
                 case "3":
                     var go3 = spawnManager.SpawnWithPeerScope(herb_frag_prefab[2]);
                     go3.transform.position = spawnPoint.position;
                     go3.transform.rotation=spawnPoint.rotation;
+                    Debug.Log("生成了3的prefab");
                     break;
                 default:
                     Debug.Log("No matching case found.");

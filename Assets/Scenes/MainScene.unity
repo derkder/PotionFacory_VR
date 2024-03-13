@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16503203, g: 0.1817489, b: 0.33097726, a: 1}
+  m_IndirectSpecularColor: {r: 0.3130587, g: 0.29374978, b: 0.5141161, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1907,6 +1907,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4177046354630628, guid: 9d012b73caba62246906034d78994c42, type: 3}
   m_PrefabInstance: {fileID: 778544780}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &805093245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4320318766480719731, guid: a982a56a5c1d46749a82e2796a93904f, type: 3}
+  m_PrefabInstance: {fileID: 969332749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &822309959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2555,6 +2560,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1111104542}
     m_Modifications:
     - target: {fileID: 524843671880919946, guid: a982a56a5c1d46749a82e2796a93904f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524843671880919946, guid: a982a56a5c1d46749a82e2796a93904f, type: 3}
       propertyPath: herb_frag_prefab.Array.data[0]
       value: 
       objectReference: {fileID: 1636471522166213390, guid: da78df378de5b9841b0c04694475abba, type: 3}
@@ -2637,13 +2646,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4320318766480719731, guid: a982a56a5c1d46749a82e2796a93904f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 969332751}
   m_SourcePrefab: {fileID: 100100000, guid: a982a56a5c1d46749a82e2796a93904f, type: 3}
 --- !u!4 &969332750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8168106822916897480, guid: a982a56a5c1d46749a82e2796a93904f, type: 3}
   m_PrefabInstance: {fileID: 969332749}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &969332751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805093245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d429faa413c8e74b88168c6e65541b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  herbs:
+  - {fileID: 4173361124002104687, guid: f3acbd89b5cc40342afdad85975dc622, type: 3}
+  - {fileID: 2241792389942612309, guid: 5b630f1a2b6ee684084600eabdbfcc7f, type: 3}
+  - {fileID: 2428631584260704793, guid: d13d3640bcffc5e4b844118980bdf5d5, type: 3}
+  herb_frag_prefab:
+  - {fileID: 1636471522166213390, guid: da78df378de5b9841b0c04694475abba, type: 3}
+  - {fileID: 4094340213963632769, guid: 6503a00f837b4b04298f33c7af3c1fdc, type: 3}
+  - {fileID: 4341986747252400405, guid: d94da8ba9bb2f8c41a009deb2f177e9a, type: 3}
+  original_herb: {fileID: 0}
 --- !u!1 &970529546 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1960137939467049262, guid: dca5d7cfc1bf6cd4d86c2b38918c8fd0, type: 3}
