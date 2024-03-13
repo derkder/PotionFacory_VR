@@ -12,6 +12,8 @@ public class CollectPot : MonoBehaviour
     public List<string> tags; // 存储草药标签的列表
     public List<int> counts; // 存储对应草药数量的列表
 
+    public List<int> tempCounts;
+
     void Start()
     {
         tags.Add("HerbA");
@@ -22,12 +24,13 @@ public class CollectPot : MonoBehaviour
         if (counts.Count != tags.Count)
         {
             counts = new List<int>(new int[tags.Count]);
+            tempCounts = new List<int>(new int[tags.Count]);
         }
     }
 
     public List<int> GetHerbsCount()
     {
-        List<int> temp = counts;
+        List<int> temp = new List<int>(counts);
         ResetPot();
         return temp;
     }
@@ -38,8 +41,8 @@ public class CollectPot : MonoBehaviour
         for (int i = 0; i < counts.Count; i++)
         {
             counts[i] = 0;
+            tempCounts[i] = 0;
         }
-
         // 使用Physics.OverlapSphere获取指定半径内的所有碰撞体
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 
@@ -63,7 +66,7 @@ public class CollectPot : MonoBehaviour
         // 将所有数量重置为0
         for (int i = 0; i < counts.Count; i++)
         {
-            counts[i] = 0;
+            tempCounts[i] = 0;
         }
 
         // 使用Physics.OverlapSphere获取指定半径内的所有碰撞体
@@ -77,11 +80,13 @@ public class CollectPot : MonoBehaviour
                 if (hitCollider.CompareTag(tags[i]))
                 {
                     // 如果匹配，相应标签的数量加一
-                    counts[i]++;
+                    tempCounts[i]++;
                     break; // 匹配成功后跳出循环
                 }
             }
         }
+
+        counts = tempCounts;
     }
 
 }

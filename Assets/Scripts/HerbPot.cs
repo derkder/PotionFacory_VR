@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ubiq.Spawning;
+using static SIPSorcery.Net.Mjpeg;
 
 //只要传送到房间事件发生之后，生成对应数量的草药
 public class HerbPot : MonoBehaviour
@@ -20,6 +21,11 @@ public class HerbPot : MonoBehaviour
         GameManager.Instance.TransportToRoom += GenerateHerbs;
         _collectPotScript = CollectPot.GetComponent<CollectPot>();
         _spawnManager = NetworkSpawnManager.Find(this);
+        // 确保数量列表的大小与标签列表相同，并初始化为0
+        if (counts.Count != HerbList.Count)
+        {
+            counts = new List<int>(new int[HerbList.Count]);
+        }
     }
 
     // Update is called once per frame
@@ -33,14 +39,13 @@ public class HerbPot : MonoBehaviour
 
     private void GenerateHerbs()
     {
-        if (_collectPotScript != null)
-        {
-            counts =  _collectPotScript.GetHerbsCount();
-        }
+        Debug.Log("GenerateHerbs()");
+        counts = _collectPotScript.GetHerbsCount();
         for (int i = 0; i < counts.Count; i++)
         {
             GameObject prefab = HerbList[i];
             int quantity = counts[i];
+            Debug.Log($"Herb{i}quantity{quantity}");
 
             for (int j = 0; j < quantity; j++)
             {

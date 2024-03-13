@@ -46,7 +46,7 @@ public class LiquidEffect : MonoBehaviour
         float dotProduct = Vector3.Dot(forwardDirection, Vector3.up);
 
         // 判断夹角是否超过90°
-        if (dotProduct < Mathf.Cos(45 * Mathf.Deg2Rad))
+        if (dotProduct < Mathf.Cos(40 * Mathf.Deg2Rad))
         {
             if(Mathf.Abs(_minAmont - _curAmount) <= 0.0005f)
             {
@@ -54,7 +54,7 @@ public class LiquidEffect : MonoBehaviour
                 //其实最好是偏移跟着rotation慢慢lerp到这里0.05f
                 //试图修复这里一下子倾倒总会有一下子变满的错误
                 _maxAmont += 0.4f;
-                _minAmont += 0.15f;
+                _minAmont += 0.08f;
                 _curAmount = _minAmont;
             }
             //print(_curAmount);
