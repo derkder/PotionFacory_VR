@@ -8,9 +8,9 @@ public class PlayerTransportController : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject _roomSpawnPoint;
+    private Transform _roomSpawnPoint;
     [SerializeField]
-    private GameObject _forestSpawnPoint;
+    private Transform _forestSpawnPoint;
 
     private void Start()
     {

@@ -9,7 +9,7 @@ public class GameManager : Singleton<GameManager>
 {
     public bool IsEditorModeOn;
     public bool EnableWellColliderDetection;
-    public bool IsInForest;
+    public bool IsInForest = false;
     public event Action TransportToForest;
     public event Action TransportToRoom;
     private GameObject _player;
@@ -19,12 +19,12 @@ public class GameManager : Singleton<GameManager>
         if(!IsInForest)
         {
             IsInForest = true;
-            TransportToRoom?.Invoke();
+            TransportToForest?.Invoke();
         }
         else
         {
             IsInForest = false;
-            TransportToForest?.Invoke();
+            TransportToRoom?.Invoke();
         }
     }
 
