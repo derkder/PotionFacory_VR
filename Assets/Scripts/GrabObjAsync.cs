@@ -4,6 +4,8 @@ using Ubiq.Messaging;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+//能抓取的物体挂载就会实现位置同步
+//这里同步被我写成async了，但是改起来实在太麻烦了就先这么滴吧
 public class GrabObjAsync : MonoBehaviour
 {
     XRGrabInteractable interactable;

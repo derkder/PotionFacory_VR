@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LiquidSimulator
+  m_Name: LiquidRed
   m_Shader: {fileID: 4800000, guid: bfc543c3df01b4747ac89409c3e02b90, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

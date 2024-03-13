@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Ubiq.Messaging;
 using UnityEngine;
 
 /*
@@ -51,8 +52,9 @@ public class LiquidEffect : MonoBehaviour
             {
                 //第一次开始倾倒，因为旋转，所以需要增加偏移
                 //其实最好是偏移跟着rotation慢慢lerp到这里0.05f
+                //试图修复这里一下子倾倒总会有一下子变满的错误
                 _maxAmont += 0.4f;
-                _minAmont += 0.05f;
+                _minAmont += 0.15f;
                 _curAmount = _minAmont;
             }
             //print(_curAmount);

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PotSimulator
+  m_Name: LiquidBlue
   m_Shader: {fileID: 4800000, guid: bfc543c3df01b4747ac89409c3e02b90, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -61,32 +61,43 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BottleWidth: 0.164
+    - _Amplitude: 0.096
+    - _BottleWidth: 0.02
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EdgeWidth: 0.03
-    - _FillAmount: 0.61
+    - _EdgeWidth: 0.008
+    - _FillAmount: 0.33
+    - _Freq: 2.4
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Line: 0.0036
+    - _LineSmooth: 0.0078
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimWidth: 3.02
+    - _Rim: 0.0108
+    - _RimPower: 1.23
+    - _RimWidth: 0.88
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _WobbleX: -5.120674e-13
+    - _WobbleZ: 8.531492e-13
     - _WorldCoordY: 0
     - _ZWrite: 1
     m_Colors:
     - _BottleColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Colour: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.65779305, g: 0.1412388, b: 0.90188676, a: 1}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 0.14509802, g: 0.12941177, b: 0.77254903, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TopColor: {r: 0.3660378, g: 0.3660378, b: 0.29490215, a: 1}
+    - _Tint: {r: 0.79622644, g: 0.22084016, b: 0.22084016, a: 1}
+    - _TopColor: {r: 0.5698112, g: 0.5698112, b: 0.5278817, a: 1}
   m_BuildTextureStacks: []
