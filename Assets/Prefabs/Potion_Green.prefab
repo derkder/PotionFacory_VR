@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 2803323629086542157}
   - component: {fileID: 7030088503434958558}
   - component: {fileID: 3389257771957913777}
-  - component: {fileID: 1402918750886487356}
-  - component: {fileID: 2613042458149780860}
+  - component: {fileID: 8022470432622786827}
   m_Layer: 0
   m_Name: Potion_Green
   m_TagString: Untagged
@@ -306,21 +305,9 @@ MonoBehaviour:
   isPouring: 0
   _minAmont: 0.33
   _maxAmont: 0.53
---- !u!114 &1402918750886487356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3868048628127119832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eddf47315b712b4bb24c55250a81922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   token: 0
   isOwner: 0
---- !u!114 &2613042458149780860
+--- !u!114 &8022470432622786827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

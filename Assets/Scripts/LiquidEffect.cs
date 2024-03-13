@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using Ubiq.Messaging;
 using UnityEngine;
 
 /*
  * 如果再想搞得正确一点儿，_maxAmont这些需要根据物体的rotation做变换
  */
+
 public class LiquidEffect : MonoBehaviour
 {
     public bool isPouring;
+    public float _curAmount;
 
     // Start is called before the first frame update
     private Renderer _rend;
@@ -18,8 +19,9 @@ public class LiquidEffect : MonoBehaviour
     private float _minAmont;
     [SerializeField]
     private float _maxAmont;
-    private float _curAmount;
     private float _step = 0.001f;
+
+    private bool hasBeenPoured;
 
     private void Awake()
     {
@@ -56,6 +58,7 @@ public class LiquidEffect : MonoBehaviour
                 _maxAmont += 0.4f;
                 _minAmont += 0.08f;
                 _curAmount = _minAmont;
+                hasBeenPoured = true;
             }
             //print(_curAmount);
             isPouring = true;

@@ -46,8 +46,7 @@ GameObject:
   - component: {fileID: 575452204311406126}
   - component: {fileID: 1456815494920420480}
   - component: {fileID: 4235965619620953640}
-  - component: {fileID: 2267383693975261734}
-  - component: {fileID: 1382676648683412006}
+  - component: {fileID: 902607402077240985}
   m_Layer: 0
   m_Name: Potion_Red
   m_TagString: Untagged
@@ -337,21 +336,9 @@ MonoBehaviour:
   isPouring: 0
   _minAmont: 0.33
   _maxAmont: 0.53
---- !u!114 &2267383693975261734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7828149459909602628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eddf47315b712b4bb24c55250a81922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   token: 0
   isOwner: 0
---- !u!114 &1382676648683412006
+--- !u!114 &902607402077240985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

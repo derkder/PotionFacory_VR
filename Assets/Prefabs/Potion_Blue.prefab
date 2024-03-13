@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 7312315496537641838}
   - component: {fileID: 3912356305617711751}
   - component: {fileID: 7408592223123016264}
-  - component: {fileID: 937976707490417077}
-  - component: {fileID: 7775167582690872518}
+  - component: {fileID: 4573491835071249710}
   m_Layer: 0
   m_Name: Potion_Blue
   m_TagString: Untagged
@@ -306,21 +305,9 @@ MonoBehaviour:
   isPouring: 0
   _minAmont: 0.33
   _maxAmont: 0.53
---- !u!114 &937976707490417077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5931832199471021679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eddf47315b712b4bb24c55250a81922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   token: 0
   isOwner: 0
---- !u!114 &7775167582690872518
+--- !u!114 &4573491835071249710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
