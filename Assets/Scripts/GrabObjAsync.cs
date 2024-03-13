@@ -24,12 +24,23 @@ public class GrabObjAsync : MonoBehaviour
         interactable.lastSelectExited.AddListener(OnDropped);
         context = NetworkScene.Register(this);
         token = Random.Range(1, 10000);
-        _isKinematic = GetComponent<Rigidbody>().isKinematic;
         isOwner = true;
+    }
+
+    //同步destroy所有端的这个物体
+    public void DestroySync()
+    {
+        Message m = new Message();
+        m.position = this.transform.position;
+        m.token = token;
+        m.getDestroy = true;
+        context.SendJson(m);
+        Destroy(this.gameObject);
     }
 
     void OnPickedUp(SelectEnterEventArgs ev)
     {
+        _isKinematic = GetComponent<Rigidbody>().isKinematic;
         Debug.Log("Picked up");
         TakeOwnership();
     }
@@ -42,10 +53,13 @@ public class GrabObjAsync : MonoBehaviour
 
     }
 
+    
+
     private struct Message
     {
         public Vector3 position;
         public int token;
+        public bool getDestroy;
     }
 
     void TakeOwnership()
@@ -70,6 +84,10 @@ public class GrabObjAsync : MonoBehaviour
     {
         var message = m.FromJson<Message>();
         transform.position = message.position;
+        if (message.getDestroy)
+        {
+            Destroy(this);
+        }
         if (message.token > token)
         {
             isOwner = false;

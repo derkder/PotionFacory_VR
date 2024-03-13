@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ubiq.Messaging;
 
+// 统计采集到的草药的个数
+// 只要任何一个player传送到房间事件发生之后，销毁所有段的草药
 public class CollectPot : MonoBehaviour
 {
     //这里不用传消息吧，两边的所有属性本来就是同步的
@@ -23,10 +25,36 @@ public class CollectPot : MonoBehaviour
         }
     }
 
-    private struct Message
+    public List<int> GetHerbsCount()
     {
-        public List<int> herbNums;
-        public int token;
+        List<int> temp = counts;
+        ResetPot();
+        return temp;
+    }
+
+    private void ResetPot()
+    {
+        // 将所有数量重置为0
+        for (int i = 0; i < counts.Count; i++)
+        {
+            counts[i] = 0;
+        }
+
+        // 使用Physics.OverlapSphere获取指定半径内的所有碰撞体
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
+
+        foreach (var hitCollider in hitColliders)
+        {
+            for (int i = 0; i < tags.Count; i++)
+            {
+                // 检查碰撞体的标签是否与列表中的某个标签相匹配
+                if (hitCollider.CompareTag(tags[i]))
+                {
+                    var GrabObjSync = hitCollider.gameObject.GetComponent<GrabObjAsync>();
+                    GrabObjSync.DestroySync();
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -54,14 +82,6 @@ public class CollectPot : MonoBehaviour
                 }
             }
         }
-
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
-        //    for (int i = 0; i < tags.Count; i++)
-        //    {
-        //        Debug.Log($"There are {counts[i]} of herb '{tags[i]}'.");
-        //    }
-        //}
-        
     }
+
 }

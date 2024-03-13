@@ -18,16 +18,6 @@ public class PlayerTransportController : MonoBehaviour
         GameManager.Instance.TransportToForest += () => transform.position = _forestSpawnPoint.transform.position;
     }
 
-    private void OnXButtonPressed()
-    {
-        transform.position = _roomSpawnPoint.transform.position;
-    }
-
-    private void OnYButtonPressed(InputAction.CallbackContext context)
-    {
-        // Y按钮被按下时要执行的代码
-        transform.position = _forestSpawnPoint.transform.position;
-    }
 
     private void OnDestroy()
     {
