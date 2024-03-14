@@ -13352,7 +13352,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4235965619620953640, guid: 6c66b9e3e2215314bbe91ac641a412e0, type: 3}
       propertyPath: Radius
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4235965619620953640, guid: 6c66b9e3e2215314bbe91ac641a412e0, type: 3}
       propertyPath: CookPot
@@ -33782,7 +33782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7408592223123016264, guid: 267c2b224e28a2041b1ff6a640728ae0, type: 3}
       propertyPath: Radius
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7408592223123016264, guid: 267c2b224e28a2041b1ff6a640728ae0, type: 3}
       propertyPath: CookPot
@@ -36639,7 +36639,7 @@ MonoBehaviour:
   _particleEffect: {fileID: 3336340712276297047}
   _model: {fileID: 3751663612402084647}
   _fire: {fileID: 4051382029929685140}
-  _rightController: {fileID: 0}
+  _rightController: {fileID: 8349869261767136740}
 --- !u!224 &2631838016237986429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -70207,7 +70207,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3389257771957913777, guid: bb858ecb4f41ade44bb8d6875dd88a80, type: 3}
       propertyPath: Radius
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3389257771957913777, guid: bb858ecb4f41ade44bb8d6875dd88a80, type: 3}
       propertyPath: CookPot
