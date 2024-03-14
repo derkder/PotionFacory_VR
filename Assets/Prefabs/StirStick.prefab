@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 3523892831876355242}
   - component: {fileID: 4634131082249440331}
   - component: {fileID: 2589975595146481028}
-  - component: {fileID: 6970544692257452159}
   - component: {fileID: 8695556589838810905}
+  - component: {fileID: 6970544692257452159}
   m_Layer: 0
   m_Name: StirStick
   m_TagString: Untagged
@@ -298,21 +298,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &6970544692257452159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5759696609512055609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4d394b6b810a2642bb7e0d3912be584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  potParticlePrefab: {fileID: 0}
-  _pot: {fileID: 0}
-  _actionAsset: {fileID: 0}
 --- !u!65 &8695556589838810905
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -334,3 +319,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.07818177, y: 5.5468326, z: 0.07818177}
   m_Center: {x: -0.00000019557774, y: 2.745549, z: 0.00000004656613}
+--- !u!114 &6970544692257452159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759696609512055609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d394b6b810a2642bb7e0d3912be584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStiring: 0
+  token: 0
+  isOwner: 0
+  _pot: {fileID: 0}
+  _actionAsset: {fileID: 0}

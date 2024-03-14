@@ -8,6 +8,9 @@ TagManager:
   - HerbA
   - HerbB
   - HerbC
+  - fragA
+  - fragB
+  - fragC
   layers:
   - Default
   - TransparentFX
