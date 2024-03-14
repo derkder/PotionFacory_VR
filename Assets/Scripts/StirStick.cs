@@ -31,6 +31,7 @@ public class StirStick : MonoBehaviour
     
 
     XRGrabInteractable interactable;
+    private float _accumulateTime = 0;
 
     private void Awake()
     {
@@ -116,6 +117,7 @@ public class StirStick : MonoBehaviour
         yield return new WaitForSeconds(time); // 等待指定的时间
         IsStiring = false; // 将布尔值设置为假
         isCoroutineRunning = false; // 标记协程结束运行
+        _accumulateTime += 0.2f;
     }
 
     private void stopStiring()

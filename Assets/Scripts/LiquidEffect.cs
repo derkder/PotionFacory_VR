@@ -9,7 +9,7 @@ using UnityEngine;
  */
 public class LiquidEffect : MonoBehaviour
 {
-    public float Radius = 2.5f;
+    public float Radius = 5f;
     public bool isPouring;
     public float _curAmount;
     public Transform PotionRecharge;
@@ -27,7 +27,7 @@ public class LiquidEffect : MonoBehaviour
     private float _minAmont;
     [SerializeField]
     private float _maxAmont;
-    private float _step = 0.001f;
+    private float _step = 0.0002f;
 
 
     void Start()
@@ -44,8 +44,10 @@ public class LiquidEffect : MonoBehaviour
     void Update()
     {
         _material.SetFloat("_WorldCoordY", transform.position.y);
-        if (Vector3.Distance(PotionRecharge.position, this.transform.position) < 2f)
+
+        if (Vector3.Distance(PotionRecharge.position, transform.position) < Radius)
         {
+            Debug.Log("asdasdasd");
             _curAmount = _minAmont;
             _material.SetFloat("_FillAmount", _curAmount);
         }
@@ -60,7 +62,7 @@ public class LiquidEffect : MonoBehaviour
         if (dotProduct < Mathf.Cos(40 * Mathf.Deg2Rad))
         {
             //下面的判断只会进入一次
-            if(Mathf.Abs(_minAmont - _curAmount) <= 0.0005f)
+            if(Mathf.Abs(_minAmont - _curAmount) <= _step - 0.0001)
             {
                 //第一次开始倾倒，因为旋转，所以需要增加偏移
                 //其实最好是偏移跟着rotation慢慢lerp到这里0.05f
