@@ -57,7 +57,7 @@ public class PotionSync : MonoBehaviour
         if (isOwner)
         {
             Message m = new Message();
-            m.position = this.transform.localPosition;
+            m.position = this.transform.position;
             m.token = token;
             m.curAmount = le._curAmount;
             context.SendJson(m);

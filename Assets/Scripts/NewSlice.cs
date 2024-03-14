@@ -93,8 +93,9 @@ public class NewSlice : MonoBehaviour
                     break;
             };
                     Debug.Log("generate");
-
+                    herbCounts[herbName]--;
                     original_herb.SetActive(false);
+                    
                 }
 
                 // 剩余数量大于 0 时继续生成碎片
