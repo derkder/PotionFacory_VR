@@ -33,7 +33,7 @@ public class HerbPot : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.S)) 
         {
-            GenerateHerbs();
+            //GenerateHerbs();
         }
     }
 

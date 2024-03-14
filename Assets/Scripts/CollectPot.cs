@@ -7,6 +7,8 @@ using Ubiq.Messaging;
 // 只要任何一个player传送到房间事件发生之后，销毁所有段的草药
 public class CollectPot : MonoBehaviour
 {
+    public Transform HerbSpawnPoint;
+
     //这里不用传消息吧，两边的所有属性本来就是同步的
     public float radius = 2.7f; // 检测的半径
     public List<string> tags; // 存储草药标签的列表
@@ -53,8 +55,7 @@ public class CollectPot : MonoBehaviour
                 // 检查碰撞体的标签是否与列表中的某个标签相匹配
                 if (hitCollider.CompareTag(tags[i]))
                 {
-                    var GrabObjSync = hitCollider.gameObject.GetComponent<GrabObjAsync>();
-                    GrabObjSync.DestroySync();
+                    hitCollider.gameObject.transform.position = HerbSpawnPoint.position;
                 }
             }
         }

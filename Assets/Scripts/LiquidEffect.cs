@@ -47,7 +47,6 @@ public class LiquidEffect : MonoBehaviour
 
         if (Vector3.Distance(PotionRecharge.position, transform.position) < Radius)
         {
-            Debug.Log("asdasdasd");
             _curAmount = _minAmont;
             _material.SetFloat("_FillAmount", _curAmount);
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Ubiq.Spawning;
@@ -12,6 +13,7 @@ public class StirStick : MonoBehaviour
     public bool IsStiring;
     public GameObject PotParticle;
     public bool isCoroutineRunning; // 用于追踪协程是否正在运行
+    public event Action OnPotionMade;
 
     public int token;
     public bool isOwner;
@@ -53,7 +55,7 @@ public class StirStick : MonoBehaviour
         interactable.firstSelectEntered.AddListener(OnPickedUp);
         interactable.lastSelectExited.AddListener(OnDropped);
         context = NetworkScene.Register(this);
-        token = Random.Range(1, 10000);
+        token = UnityEngine.Random.Range(1, 10000);
         isOwner = true;
     }
 
@@ -118,6 +120,11 @@ public class StirStick : MonoBehaviour
         IsStiring = false; // 将布尔值设置为假
         isCoroutineRunning = false; // 标记协程结束运行
         _accumulateTime += 0.2f;
+        if(_accumulateTime >= 0.6f)
+        {
+            _accumulateTime = 0;
+            OnPotionMade?.Invoke();
+        }
     }
 
     private void stopStiring()
