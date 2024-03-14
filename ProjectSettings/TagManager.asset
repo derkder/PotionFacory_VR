@@ -11,6 +11,9 @@ TagManager:
   - fragA
   - fragB
   - fragC
+  - PotionR
+  - PotionG
+  - PotionB
   layers:
   - Default
   - TransparentFX

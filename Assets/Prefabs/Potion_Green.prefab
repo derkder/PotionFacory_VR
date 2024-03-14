@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8022470432622786827}
   m_Layer: 0
   m_Name: Potion_Green
-  m_TagString: Untagged
+  m_TagString: PotionG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 81
@@ -303,10 +303,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPouring: 0
+  _curAmount: 0
+  PotionRecharge: {fileID: 0}
+  CookPot: {fileID: 0}
   _minAmont: 0.33
   _maxAmont: 0.53
-  token: 0
-  isOwner: 0
 --- !u!114 &8022470432622786827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390bda43bc1e1b349a9f0ec9f187ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  token: 0
+  isOwner: 0
 --- !u!1 &4572458211308460883
 GameObject:
   m_ObjectHideFlags: 0

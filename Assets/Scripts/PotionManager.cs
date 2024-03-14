@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotionRecharger : MonoBehaviour
+public class PotionManager : Singleton<PotionManager>
 {
     // Start is called before the first frame update
     void Start()

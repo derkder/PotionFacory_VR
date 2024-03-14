@@ -1,15 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 /*
  * 如果再想搞得正确一点儿，_maxAmont这些需要根据物体的rotation做变换
  */
-
 public class LiquidEffect : MonoBehaviour
 {
+    public float Radius = 2.5f;
     public bool isPouring;
     public float _curAmount;
+    public Transform PotionRecharge;
+    public Transform CookPot;
+    public IngredientManager IngredientManager;
+    
+    public event Action HasPoured;
+
 
     // Start is called before the first frame update
     private Renderer _rend;
@@ -21,12 +29,6 @@ public class LiquidEffect : MonoBehaviour
     private float _maxAmont;
     private float _step = 0.001f;
 
-    private bool hasBeenPoured;
-
-    private void Awake()
-    {
-        
-    }
 
     void Start()
     {
@@ -34,12 +36,19 @@ public class LiquidEffect : MonoBehaviour
         _material = _rend.material;
         _material.SetFloat("_FillAmount", _minAmont);
         _curAmount = _minAmont;
+        IngredientManager = CookPot.GetComponent<IngredientManager>();
+        HasPoured += IngredientManager.PotionNumUpdate;
     }
 
     // Update is called once per frame
     void Update()
     {
         _material.SetFloat("_WorldCoordY", transform.position.y);
+        if (Vector3.Distance(PotionRecharge.position, this.transform.position) < 2f)
+        {
+            _curAmount = _minAmont;
+            _material.SetFloat("_FillAmount", _curAmount);
+        }
     }
 
     private void FixedUpdate()
@@ -50,17 +59,20 @@ public class LiquidEffect : MonoBehaviour
         // 判断夹角是否超过90°
         if (dotProduct < Mathf.Cos(40 * Mathf.Deg2Rad))
         {
+            //下面的判断只会进入一次
             if(Mathf.Abs(_minAmont - _curAmount) <= 0.0005f)
             {
                 //第一次开始倾倒，因为旋转，所以需要增加偏移
                 //其实最好是偏移跟着rotation慢慢lerp到这里0.05f
                 //试图修复这里一下子倾倒总会有一下子变满的错误
                 _maxAmont += 0.4f;
-                _minAmont += 0.08f;
+                _minAmont += 0.06f;
                 _curAmount = _minAmont;
-                hasBeenPoured = true;
+                if(Vector3.Distance(CookPot.position, this.transform.position) < Radius)
+                {
+                    HasPoured?.Invoke();
+                }
             }
-            //print(_curAmount);
             isPouring = true;
             _curAmount = Mathf.Min(_curAmount + _step, _maxAmont);
             _material.SetFloat("_FillAmount", _curAmount);
