@@ -1011,7 +1011,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275441895}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1500,7 +1500,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464307171}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1653,7 +1653,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587571007}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1856,7 +1856,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735641695}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9004,7 +9004,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471104609}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -23103,10 +23103,10 @@ RectTransform:
   - {fileID: 2835025562448356640}
   m_Father: {fileID: 4503229975109015559}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 21, y: -22.5}
-  m_SizeDelta: {x: 30, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1166721612644967228
 Transform:
@@ -24638,6 +24638,8 @@ GameObject:
   - component: {fileID: 1442032885492786406}
   - component: {fileID: 1442032885492786405}
   - component: {fileID: 1442032885492786407}
+  - component: {fileID: 1442032885492786408}
+  - component: {fileID: 1442032885492786409}
   m_Layer: 0
   m_Name: Tutup_botol
   m_TagString: Untagged
@@ -24847,6 +24849,33 @@ CapsuleCollider:
   m_Height: 1.7023349
   m_Direction: 1
   m_Center: {x: 0.003498004, y: -0.4691721, z: -0.0053116307}
+--- !u!114 &1442032885492786408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442032885492786404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eddf47315b712b4bb24c55250a81922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  token: 0
+  isOwner: 0
+--- !u!114 &1442032885492786409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442032885492786404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc85729d3bd9f645a37078bfd0c47da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionAsset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!198 &1447189507764549131
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -51902,10 +51931,10 @@ RectTransform:
   - {fileID: 692109831091821539}
   m_Father: {fileID: 4503229975109015559}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 53, y: -22.5}
-  m_SizeDelta: {x: 30, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4915745201568988376
 GameObject:
@@ -78236,6 +78265,7 @@ MonoBehaviour:
   FragName: []
   PotionCount: 
   FragCount: 
+  PotionGenerated: 
   Radius: 2.7
   _rightController: {fileID: 8349869261767136740}
   StirStick: {fileID: 5759696609711970394}

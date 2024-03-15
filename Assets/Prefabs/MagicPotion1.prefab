@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3488776076181753247}
   - component: {fileID: 2462207145953467891}
   - component: {fileID: 9009690542236905179}
+  - component: {fileID: -720774535210993843}
   m_Layer: 0
-  m_Name: Potion_Red_01
+  m_Name: MagicPotion1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-720774535210993843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511771792939948317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6be35a3fa357549a9e69cd2dc0e834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

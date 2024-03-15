@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
 //告诉锅和粒子，锅有没有被搅动
+//只有搅拌的人的锅可以会有药水
+//但是药水生出来之后两个人都可以喝
 public class StirStick : MonoBehaviour
 {
     public bool IsStiring;
