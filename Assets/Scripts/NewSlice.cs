@@ -73,19 +73,28 @@ public class NewSlice : MonoBehaviour
                     var go1 = spawnManager.SpawnWithPeerScope(herb_frag_prefab[0]);
                     go1.transform.position = spawnPoint.position;
                     go1.transform.rotation=spawnPoint.rotation;
-                    Debug.Log("生成了1的prefab");
+                    Rigidbody rig1=go1.GetComponent<Rigidbody>();
+                    rig1.useGravity=true;
+                    rig1.isKinematic=false;
+                    Debug.Log("生成了1的prefab"+rig1.useGravity);
                     
                     break;
                 case "2":
                     var go2 = spawnManager.SpawnWithPeerScope(herb_frag_prefab[1]);
                     go2.transform.position = spawnPoint.position;
                     go2.transform.rotation=spawnPoint.rotation;
+                    Rigidbody rig2=go2.GetComponent<Rigidbody>();
+                    rig2.useGravity=true;
+                    rig2.isKinematic=false;
                     Debug.Log("生成了2的prefab");
                     break;
                 case "3":
                     var go3 = spawnManager.SpawnWithPeerScope(herb_frag_prefab[2]);
                     go3.transform.position = spawnPoint.position;
                     go3.transform.rotation=spawnPoint.rotation;
+                    Rigidbody rig3=go3.GetComponent<Rigidbody>();
+                    rig3.useGravity=true;
+                    rig3.isKinematic=false;
                     Debug.Log("生成了3的prefab");
                     break;
                 default:
