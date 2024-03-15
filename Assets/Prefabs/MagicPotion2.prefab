@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 9145988816746375949}
   - component: {fileID: 5108522537899896917}
   m_Layer: 0
-  m_Name: MagicPotion1
+  m_Name: MagicPotion2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8180735475426118592, guid: 9f2cb761b202d1440be0371d2845b3ff, type: 3}
+  - {fileID: 2100000, guid: fe8c34defa0f25344a981704b2e29b61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

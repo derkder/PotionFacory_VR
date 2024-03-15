@@ -39,15 +39,19 @@ public class StirStick : MonoBehaviour
 
     private void Awake()
     {
-        _selectAction = _actionAsset.FindActionMap("XRI RightHand Interaction").FindAction("Select");
-        if (_selectAction == null)
-        {
-            Debug.LogError("Select action not found.");
-            return;
-        }
+        //_selectAction = _actionAsset.FindActionMap("XRI RightHand Interaction").FindAction("Select");
+        //if (_selectAction == null)
+        //{
+        //    Debug.LogError("Select action not found.");
+        //    return;
+        //}
 
-        _selectAction.performed += _ => _isGripped = true;
-        _selectAction.canceled += _ => _isGripped = false;
+        //_selectAction.performed += _ => _isGripped = true;
+        //_selectAction.canceled += _ => _isGripped = false;
+
+        interactable = GetComponent<XRGrabInteractable>();
+        interactable.firstSelectEntered.AddListener(_ => _isGripped = true);
+        interactable.lastSelectExited.AddListener(_ => _isGripped = false);
     }
 
     private void Start()
@@ -135,16 +139,6 @@ public class StirStick : MonoBehaviour
         {
             IsStiring = false;
         }
-    }
-
-    private void OnEnable()
-    {
-        _selectAction.Enable();
-    }
-
-    private void OnDisable()
-    {
-        _selectAction.Disable();
     }
 
     void TakeOwnership()

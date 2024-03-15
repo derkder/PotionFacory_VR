@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using static SIPSorcery.Net.Mjpeg;
@@ -13,7 +14,7 @@ public class IngredientManager : MonoBehaviour
     public List<string> FragName = new List<string>();
     public List<int> PotionCount = new List<int>();
     public List<int> FragCount = new List<int>();
-    public List<bool> PotionGenerated = new List<bool>(3);
+    public List<bool> PotionGenerated = new List<bool>();
     public float Radius = 2.7f;
 
     [SerializeField]
@@ -35,6 +36,7 @@ public class IngredientManager : MonoBehaviour
         ss.OnPotionMade += GeneratePotion;
         PotionCount = new List<int>(new int[PotionName.Count]);
         FragCount = new List<int>(new int[FragName.Count]);
+        PotionGenerated = new List<bool>(new bool[FragName.Count]);
     }
 
     // Update is called once per frame
@@ -93,6 +95,8 @@ public class IngredientManager : MonoBehaviour
                 {
                     // 如果匹配，相应标签的数量加一
                     FragCount[i]++;
+                    //这里后续改成同步destroy
+                    Destroy(hitCollider.gameObject);
                     break; // 匹配成功后跳出循环
                 }
             }
@@ -101,7 +105,23 @@ public class IngredientManager : MonoBehaviour
         if (FragCount[0] >=1 && PotionCount[0] >= 1)
         {
             PotionGenerated[0] = true;
-            
+            // 假设list是你的整型列表
+            FragCount = FragCount.Select(i => 0).ToList();
+            PotionCount = PotionCount.Select(i => 0).ToList();
+        }
+        else if(FragCount[1] >= 1 && PotionCount[1] >= 1)
+        {
+            PotionGenerated[1] = true;
+            // 假设list是你的整型列表
+            FragCount = FragCount.Select(i => 0).ToList();
+            PotionCount = PotionCount.Select(i => 0).ToList();
+        }
+        else if(FragCount[2] >= 1 && PotionCount[2] >= 1)
+        {
+            PotionGenerated[2] = true;
+            // 假设list是你的整型列表
+            FragCount = FragCount.Select(i => 0).ToList();
+            PotionCount = PotionCount.Select(i => 0).ToList();
         }
         
     }

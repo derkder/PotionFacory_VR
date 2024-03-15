@@ -9,7 +9,8 @@ using UnityEngine;
  */
 public class LiquidEffect : MonoBehaviour
 {
-    public float Radius = 5f;
+    private float RefillRadius = 1.5f;
+    private float PouredRadius = 5f;
     public bool isPouring;
     public float _curAmount;
     public Transform PotionRecharge;
@@ -45,11 +46,9 @@ public class LiquidEffect : MonoBehaviour
     {
         _material.SetFloat("_WorldCoordY", transform.position.y);
         _material.SetFloat("_FillAmount", _curAmount);
-        if (Vector3.Distance(PotionRecharge.position, transform.position) < Radius)
+        if (Vector3.Distance(PotionRecharge.position, transform.position) < RefillRadius)
         {
-            //Debug.Log("asdasdasd");
-            _maxAmont -= 0.4f;
-            _minAmont -= 0.08f;
+            Debug.Log("LiquidRefill");
             _curAmount = _minAmont;
         }
     }
@@ -69,16 +68,14 @@ public class LiquidEffect : MonoBehaviour
                 //其实最好是偏移跟着rotation慢慢lerp到这里0.05f
                 //试图修复这里一下子倾倒总会有一下子变满的错误
                 Debug.Log("FirstBiggerThan50");
-                _maxAmont += 0.4f;
-                _minAmont += 0.08f;
-                _curAmount = _minAmont + _step;
-                if(Vector3.Distance(CookPot.position, this.transform.position) < Radius)
+                _curAmount = _minAmont + 0.08f + _step;
+                if(Vector3.Distance(CookPot.position, this.transform.position) < PouredRadius)
                 {
                     HasPoured?.Invoke();
                 }
             }
             isPouring = true;
-            _curAmount = Mathf.Min(_curAmount + _step, _maxAmont);
+            _curAmount = Mathf.Min(_curAmount + _step, _maxAmont + 0.4f);
             _material.SetFloat("_FillAmount", _curAmount);
             Debug.Log("物体的前方与y轴的夹角超过90度");
         }

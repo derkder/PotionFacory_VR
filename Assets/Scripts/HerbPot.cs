@@ -18,14 +18,14 @@ public class HerbPot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.TransportToRoom += GenerateHerbs;
-        _collectPotScript = CollectPot.GetComponent<CollectPot>();
-        _spawnManager = NetworkSpawnManager.Find(this);
-        // 确保数量列表的大小与标签列表相同，并初始化为0
-        if (counts.Count != HerbList.Count)
-        {
-            counts = new List<int>(new int[HerbList.Count]);
-        }
+        //GameManager.Instance.TransportToRoom += GenerateHerbs;
+        //_collectPotScript = CollectPot.GetComponent<CollectPot>();
+        //_spawnManager = NetworkSpawnManager.Find(this);
+        //// 确保数量列表的大小与标签列表相同，并初始化为0
+        //if (counts.Count != HerbList.Count)
+        //{
+        //    counts = new List<int>(new int[HerbList.Count]);
+        //}
     }
 
     // Update is called once per frame

@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Ubiq.Spawning;
+using Ubiq.Messaging;
 using UnityEngine;
 
-public class MagicPotion : MonoBehaviour
+public class MagicPotion : MonoBehaviour, INetworkSpawnable
 {
+    public NetworkId NetworkId { get; set; }
+    NetworkContext context;
+
     void Start()
     {
         
@@ -14,4 +19,8 @@ public class MagicPotion : MonoBehaviour
     {
         
     }
+    public void ProcessMessage(ReferenceCountedSceneGraphMessage message)
+    {
+    }
+
 }
