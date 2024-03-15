@@ -18,9 +18,9 @@ public class HerbPot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GameManager.Instance.TransportToRoom += GenerateHerbs;
-        //_collectPotScript = CollectPot.GetComponent<CollectPot>();
-        //_spawnManager = NetworkSpawnManager.Find(this);
+        GameManager.Instance.TransportToRoom += TransformHerbs;
+        _collectPotScript = CollectPot.GetComponent<CollectPot>();
+        _spawnManager = NetworkSpawnManager.Find(this);
         //// 确保数量列表的大小与标签列表相同，并初始化为0
         //if (counts.Count != HerbList.Count)
         //{
@@ -33,36 +33,36 @@ public class HerbPot : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.S)) 
         {
-            //GenerateHerbs();
+            TransformHerbs();
         }
     }
 
-    private void GenerateHerbs()
+    private void TransformHerbs()
     {
-        Debug.Log("GenerateHerbs()");
+        Debug.Log("TransformHerbs()");
         counts = _collectPotScript.GetHerbsCount();
-        for (int i = 0; i < counts.Count; i++)
-        {
-            GameObject prefab = HerbList[i];
-            int quantity = counts[i];
-            Debug.Log($"Herb{i}quantity{quantity}");
+        //for (int i = 0; i < counts.Count; i++)
+        //{
+        //    GameObject prefab = HerbList[i];
+        //    int quantity = counts[i];
+        //    Debug.Log($"Herb{i}quantity{quantity}");
 
-            for (int j = 0; j < quantity; j++)
-            {
-                // 实例化GameObject
-                var go = _spawnManager.SpawnWithPeerScope(prefab);
-                //var potParticle = go.GetComponent<PotParticle>();
-                //GameObject instance = Instantiate(prefab, transform.position, Quaternion.identity);
-                go.transform.position = SpawnPoint.position;
-                // 设置Rigidbody组件的属性
-                Rigidbody rb = go.GetComponent<Rigidbody>();
-                if (rb != null)
-                {
-                    rb.isKinematic = false;
-                    rb.useGravity = true;   
-                }
-            }
-        }
+        //    for (int j = 0; j < quantity; j++)
+        //    {
+        //        // 实例化GameObject
+        //        var go = _spawnManager.SpawnWithPeerScope(prefab);
+        //        //var potParticle = go.GetComponent<PotParticle>();
+        //        //GameObject instance = Instantiate(prefab, transform.position, Quaternion.identity);
+        //        go.transform.position = SpawnPoint.position;
+        //        // 设置Rigidbody组件的属性
+        //        Rigidbody rb = go.GetComponent<Rigidbody>();
+        //        if (rb != null)
+        //        {
+        //            rb.isKinematic = false;
+        //            rb.useGravity = true;   
+        //        }
+        //    }
+        //}
 
     }
 }
