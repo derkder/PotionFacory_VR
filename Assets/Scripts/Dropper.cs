@@ -4,7 +4,6 @@ using Ubiq.Spawning;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Dropper : MonoBehaviour
 {
