@@ -13,9 +13,11 @@ public class PotionSync : MonoBehaviour
     public bool isOwner;
     LiquidEffect le;
 
+
     private struct Message
     {
         public Vector3 position;
+        public bool hasPooled;
         public float curAmount;
         public int token;
     }

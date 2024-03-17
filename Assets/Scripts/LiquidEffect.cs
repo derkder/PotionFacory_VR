@@ -12,6 +12,7 @@ public class LiquidEffect : MonoBehaviour
     private float RefillRadius = 1.5f;
     private float PouredRadius = 5f;
     public bool isPouring;
+    public bool hasPoured;
     public float _curAmount;
     public Transform PotionRecharge;
     public Transform CookPot;
@@ -46,10 +47,11 @@ public class LiquidEffect : MonoBehaviour
     {
         _material.SetFloat("_WorldCoordY", transform.position.y);
         _material.SetFloat("_FillAmount", _curAmount);
-        if (Vector3.Distance(PotionRecharge.position, transform.position) < RefillRadius)
+        if ((_curAmount != _minAmont) && (Vector3.Distance(PotionRecharge.position, transform.position) < RefillRadius))
         {
             Debug.Log("LiquidRefill");
             _curAmount = _minAmont;
+            hasPoured = false;
         }
     }
 
@@ -71,7 +73,11 @@ public class LiquidEffect : MonoBehaviour
                 _curAmount = _minAmont + 0.08f + _step;
                 if(Vector3.Distance(CookPot.position, this.transform.position) < PouredRadius)
                 {
-                    HasPoured?.Invoke();
+                    if (!hasPoured)
+                    {
+                        HasPoured?.Invoke();
+                        hasPoured = true;
+                    } 
                 }
             }
             isPouring = true;

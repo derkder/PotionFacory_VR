@@ -19,7 +19,7 @@ public class CameraTransformController : MonoBehaviour
         {
             Debug.Log("Camera Offset Descending" + transform.position.y);
             Vector3 newPosition = transform.position;
-            newPosition.y += 0.5f;
+            newPosition.y = 0.7f;
             transform.position = newPosition;
         }
     }

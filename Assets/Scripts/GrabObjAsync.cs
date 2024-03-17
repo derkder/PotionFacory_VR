@@ -32,12 +32,15 @@ public class GrabObjAsync : MonoBehaviour
     //同步destroy所有端的这个物体
     public void DestroySync()
     {
+        TakeOwnership();
         Message m = new Message();
         m.position = this.transform.position;
         m.token = token;
         m.getDestroy = true;
         context.SendJson(m);
-        Destroy(this.gameObject);
+
+        //isOwner貌似就不接受消息了
+        Destroy(gameObject);
     }
 
     void OnPickedUp(SelectEnterEventArgs ev)
@@ -55,7 +58,6 @@ public class GrabObjAsync : MonoBehaviour
 
     }
 
-    
 
     private struct Message
     {
@@ -80,15 +82,22 @@ public class GrabObjAsync : MonoBehaviour
             m.token = token;
             context.SendJson(m);
         }
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("asd");
+            DestroySync();
+        }
     }
 
     public void ProcessMessage(ReferenceCountedSceneGraphMessage m)
     {
+        Debug.Log("ProcessMessage");
         var message = m.FromJson<Message>();
         transform.position = message.position;
         if (message.getDestroy)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         if (message.token > token)
         {

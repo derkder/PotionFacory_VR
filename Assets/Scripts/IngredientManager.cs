@@ -6,6 +6,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 //herb数量不需要同步，药水也不需要，两边的药水有旋转就会给这玩意儿加加
 //需要同步的: 有没有被搅动， 干脆别同步了这里，到时候做的人拿到药水，生成一个两边有的就可以了
+
+//这里一人一个Manager，但是生成之后，要保证两边的草药都消失掉了
 public class IngredientManager : MonoBehaviour
 {
     public List<string> PotionName = new List<string>();
@@ -58,7 +60,7 @@ public class IngredientManager : MonoBehaviour
     }
 
 
-
+    //这里有一个人的列表被更新了就可以了
     public void PotionNumUpdate()
     {
         // 使用Physics.OverlapSphere获取指定半径内的所有碰撞体
