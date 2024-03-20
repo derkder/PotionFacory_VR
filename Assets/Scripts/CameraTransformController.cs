@@ -15,7 +15,7 @@ public class CameraTransformController : MonoBehaviour
     void Update()
     {
         //Debug.Log(transform.position.y);
-        if(transform.position.y < 0.2f)
+        if(transform.position.y < 0.7f)
         {
             Debug.Log("Camera Offset Descending" + transform.position.y);
             Vector3 newPosition = transform.position;

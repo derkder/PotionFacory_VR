@@ -77,6 +77,6 @@ public class PotionSync : MonoBehaviour
             token = message.token;
             GetComponent<Rigidbody>().isKinematic = true;
         }
-        Debug.Log(gameObject.name + " Updated");
+        //Debug.Log(gameObject.name + " Updated");
     }
 }

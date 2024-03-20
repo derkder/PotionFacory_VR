@@ -38,7 +38,7 @@ public class GrabObjAsync : MonoBehaviour
         m.token = token;
         m.getDestroy = true;
         context.SendJson(m);
-
+        Debug.Log("grab sync destroy");
         //isOwner貌似就不接受消息了
         Destroy(gameObject);
     }
@@ -81,12 +81,6 @@ public class GrabObjAsync : MonoBehaviour
             m.position = this.transform.position;
             m.token = token;
             context.SendJson(m);
-        }
-
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("asd");
-            DestroySync();
         }
     }
 

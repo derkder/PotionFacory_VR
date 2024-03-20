@@ -126,7 +126,7 @@ public class StirStick : MonoBehaviour
         IsStiring = false; // 将布尔值设置为假
         isCoroutineRunning = false; // 标记协程结束运行
         _accumulateTime += 0.2f;
-        if(_accumulateTime >= 0.6f)
+        if(_accumulateTime >= 1f)
         {
             _accumulateTime = 0;
             OnPotionMade?.Invoke();
@@ -168,7 +168,6 @@ public class StirStick : MonoBehaviour
     public void ProcessMessage(ReferenceCountedSceneGraphMessage m)
     {
         var message = m.FromJson<Message>();
-        transform.position = message.position;
         IsStiring = message.IsStiring;
         if (message.token > token)
         {
