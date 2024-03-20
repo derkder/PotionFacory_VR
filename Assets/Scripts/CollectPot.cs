@@ -1,18 +1,18 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ubiq.Messaging;
 
-// Í³¼Æ²É¼¯µ½µÄ²İÒ©µÄ¸öÊı
-// Ö»ÒªÈÎºÎÒ»¸öplayer´«ËÍµ½·¿¼äÊÂ¼ş·¢ÉúÖ®ºó£¬Ïú»ÙËùÓĞ¶ÎµÄ²İÒ©
+// ç»Ÿè®¡é‡‡é›†åˆ°çš„è‰è¯çš„ä¸ªæ•°
+// åªè¦ä»»ä½•ä¸€ä¸ªplayerä¼ é€åˆ°æˆ¿é—´äº‹ä»¶å‘ç”Ÿä¹‹åï¼Œé”€æ¯æ‰€æœ‰æ®µçš„è‰è¯
 public class CollectPot : MonoBehaviour
 {
     public Transform HerbSpawnPoint;
 
-    //ÕâÀï²»ÓÃ´«ÏûÏ¢°É£¬Á½±ßµÄËùÓĞÊôĞÔ±¾À´¾ÍÊÇÍ¬²½µÄ
-    public float radius = 2.7f; // ¼ì²âµÄ°ë¾¶
-    public List<string> tags; // ´æ´¢²İÒ©±êÇ©µÄÁĞ±í
-    public List<int> counts; // ´æ´¢¶ÔÓ¦²İÒ©ÊıÁ¿µÄÁĞ±í
+    //è¿™é‡Œä¸ç”¨ä¼ æ¶ˆæ¯å§ï¼Œä¸¤è¾¹çš„æ‰€æœ‰å±æ€§æœ¬æ¥å°±æ˜¯åŒæ­¥çš„
+    public float radius = 2.7f; // æ£€æµ‹çš„åŠå¾„
+    public List<string> tags; // å­˜å‚¨è‰è¯æ ‡ç­¾çš„åˆ—è¡¨
+    public List<int> counts; // å­˜å‚¨å¯¹åº”è‰è¯æ•°é‡çš„åˆ—è¡¨
 
     public List<int> tempCounts;
 
@@ -22,7 +22,7 @@ public class CollectPot : MonoBehaviour
         tags.Add("HerbB");
         tags.Add("HerbC");
 
-        // È·±£ÊıÁ¿ÁĞ±íµÄ´óĞ¡Óë±êÇ©ÁĞ±íÏàÍ¬£¬²¢³õÊ¼»¯Îª0
+        // ç¡®ä¿æ•°é‡åˆ—è¡¨çš„å¤§å°ä¸æ ‡ç­¾åˆ—è¡¨ç›¸åŒï¼Œå¹¶åˆå§‹åŒ–ä¸º0
         if (counts.Count != tags.Count)
         {
             counts = new List<int>(new int[tags.Count]);
@@ -39,20 +39,20 @@ public class CollectPot : MonoBehaviour
 
     private void ResetPot()
     {
-        // ½«ËùÓĞÊıÁ¿ÖØÖÃÎª0
+        // å°†æ‰€æœ‰æ•°é‡é‡ç½®ä¸º0
         for (int i = 0; i < counts.Count; i++)
         {
             counts[i] = 0;
             tempCounts[i] = 0;
         }
-        // Ê¹ÓÃPhysics.OverlapSphere»ñÈ¡Ö¸¶¨°ë¾¶ÄÚµÄËùÓĞÅö×²Ìå
+        // ä½¿ç”¨Physics.OverlapSphereè·å–æŒ‡å®šåŠå¾„å†…çš„æ‰€æœ‰ç¢°æ’ä½“
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach (var hitCollider in hitColliders)
         {
             for (int i = 0; i < tags.Count; i++)
             {
-                // ¼ì²éÅö×²ÌåµÄ±êÇ©ÊÇ·ñÓëÁĞ±íÖĞµÄÄ³¸ö±êÇ©ÏàÆ¥Åä
+                // æ£€æŸ¥ç¢°æ’ä½“çš„æ ‡ç­¾æ˜¯å¦ä¸åˆ—è¡¨ä¸­çš„æŸä¸ªæ ‡ç­¾ç›¸åŒ¹é…
                 if (hitCollider.CompareTag(tags[i]))
                 {
                     hitCollider.gameObject.transform.position = HerbSpawnPoint.position;
@@ -64,25 +64,25 @@ public class CollectPot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ½«ËùÓĞÊıÁ¿ÖØÖÃÎª0
+        // å°†æ‰€æœ‰æ•°é‡é‡ç½®ä¸º0
         for (int i = 0; i < counts.Count; i++)
         {
             tempCounts[i] = 0;
         }
 
-        // Ê¹ÓÃPhysics.OverlapSphere»ñÈ¡Ö¸¶¨°ë¾¶ÄÚµÄËùÓĞÅö×²Ìå
+        // ä½¿ç”¨Physics.OverlapSphereè·å–æŒ‡å®šåŠå¾„å†…çš„æ‰€æœ‰ç¢°æ’ä½“
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach (var hitCollider in hitColliders)
         {
             for (int i = 0; i < tags.Count; i++)
             {
-                // ¼ì²éÅö×²ÌåµÄ±êÇ©ÊÇ·ñÓëÁĞ±íÖĞµÄÄ³¸ö±êÇ©ÏàÆ¥Åä
+                // æ£€æŸ¥ç¢°æ’ä½“çš„æ ‡ç­¾æ˜¯å¦ä¸åˆ—è¡¨ä¸­çš„æŸä¸ªæ ‡ç­¾ç›¸åŒ¹é…
                 if (hitCollider.CompareTag(tags[i]))
                 {
-                    // Èç¹ûÆ¥Åä£¬ÏàÓ¦±êÇ©µÄÊıÁ¿¼ÓÒ»
+                    // å¦‚æœåŒ¹é…ï¼Œç›¸åº”æ ‡ç­¾çš„æ•°é‡åŠ ä¸€
                     tempCounts[i]++;
-                    break; // Æ¥Åä³É¹¦ºóÌø³öÑ­»·
+                    break; // åŒ¹é…æˆåŠŸåè·³å‡ºå¾ªç¯
                 }
             }
         }

@@ -1,9 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-//Á½±ßµÄÑÛÇòÊÇÍ¬²½·¢Éú±¬Õ¨µÄ£¡ËùÒÔÕâÀï²»ĞèÒª¸ãÍ¬²½
+//ä¸¤è¾¹çš„çœ¼çƒæ˜¯åŒæ­¥å‘ç”Ÿçˆ†ç‚¸çš„ï¼æ‰€ä»¥è¿™é‡Œä¸éœ€è¦æåŒæ­¥
+//ä½†æ˜¯å®æœºè·‘çš„æ—¶å€™å°±æ²¡æœ‰ï¼Œæˆ‘åäº†
 public class EyeBall : MonoBehaviour
 {
     public bool HasExploded;
@@ -28,7 +29,7 @@ public class EyeBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -39,7 +40,7 @@ public class EyeBall : MonoBehaviour
         {
             if (_rightController)
             {
-                if(_rightController.SendHapticImpulse(0.5f, 1))
+                if (_rightController.SendHapticImpulse(0.5f, 1))
                 {
                     print("success");
                 }
@@ -53,7 +54,7 @@ public class EyeBall : MonoBehaviour
 
     IEnumerator WaitAndDestroy()
     {
-        //µÈ´ıÒ»»á¶ùÖ®ºóÏú»ÙÑÛÇòÌØĞ§
+        //ç­‰å¾…ä¸€ä¼šå„¿ä¹‹åé”€æ¯çœ¼çƒç‰¹æ•ˆ
         yield return new WaitForSeconds(1f);
         _particleEffect.SetActive(false);
     }

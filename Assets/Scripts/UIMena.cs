@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class UIMenu : MonoBehaviour
 {
     public Transform head;
-    public float spawnDistance = 2;
+    public float spawnDistance = 3;
     public GameObject menu;
 
     [SerializeField]

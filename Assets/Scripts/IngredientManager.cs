@@ -1,13 +1,13 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-//herbÊıÁ¿²»ĞèÒªÍ¬²½£¬Ò©Ë®Ò²²»ĞèÒª£¬Á½±ßµÄÒ©Ë®ÓĞĞı×ª¾Í»á¸øÕâÍæÒâ¶ù¼Ó¼Ó
-//ĞèÒªÍ¬²½µÄ: ÓĞÃ»ÓĞ±»½Á¶¯£¬ ¸É´à±ğÍ¬²½ÁËÕâÀï£¬µ½Ê±ºò×öµÄÈËÄÃµ½Ò©Ë®£¬Éú³ÉÒ»¸öÁ½±ßÓĞµÄ¾Í¿ÉÒÔÁË
+//herbæ•°é‡ä¸éœ€è¦åŒæ­¥ï¼Œè¯æ°´ä¹Ÿä¸éœ€è¦ï¼Œä¸¤è¾¹çš„è¯æ°´æœ‰æ—‹è½¬å°±ä¼šç»™è¿™ç©æ„å„¿åŠ åŠ 
+//éœ€è¦åŒæ­¥çš„: æœ‰æ²¡æœ‰è¢«æ…åŠ¨ï¼Œ å¹²è„†åˆ«åŒæ­¥äº†è¿™é‡Œï¼Œåˆ°æ—¶å€™åšçš„äººæ‹¿åˆ°è¯æ°´ï¼Œç”Ÿæˆä¸€ä¸ªä¸¤è¾¹æœ‰çš„å°±å¯ä»¥äº†
 
-//ÕâÀïÒ»ÈËÒ»¸öManager£¬µ«ÊÇÉú³ÉÖ®ºó£¬Òª±£Ö¤Á½±ßµÄ²İÒ©¶¼ÏûÊ§µôÁË
+//è¿™é‡Œä¸€äººä¸€ä¸ªManagerï¼Œä½†æ˜¯ç”Ÿæˆä¹‹åï¼Œè¦ä¿è¯ä¸¤è¾¹çš„è‰è¯éƒ½æ¶ˆå¤±æ‰äº†
 public class IngredientManager : MonoBehaviour
 {
     public List<string> PotionName = new List<string>();
@@ -46,7 +46,7 @@ public class IngredientManager : MonoBehaviour
         {
             stirTime += Time.deltaTime;
         }
-        if(stirTime > 1.0f)
+        if (stirTime > 1.0f)
         {
             stirTime = 0;
             if (_rightController)
@@ -60,22 +60,22 @@ public class IngredientManager : MonoBehaviour
     }
 
 
-    //ÕâÀïÓĞÒ»¸öÈËµÄÁĞ±í±»¸üĞÂÁË¾Í¿ÉÒÔÁË
+    //è¿™é‡Œæœ‰ä¸€ä¸ªäººçš„åˆ—è¡¨è¢«æ›´æ–°äº†å°±å¯ä»¥äº†
     public void PotionNumUpdate()
     {
-        // Ê¹ÓÃPhysics.OverlapSphere»ñÈ¡Ö¸¶¨°ë¾¶ÄÚµÄËùÓĞÅö×²Ìå
+        // ä½¿ç”¨Physics.OverlapSphereè·å–æŒ‡å®šåŠå¾„å†…çš„æ‰€æœ‰ç¢°æ’ä½“
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, Radius);
 
         foreach (var hitCollider in hitColliders)
         {
             for (int i = 0; i < PotionName.Count; i++)
             {
-                // ¼ì²éÅö×²ÌåµÄ±êÇ©ÊÇ·ñÓëÁĞ±íÖĞµÄÄ³¸ö±êÇ©ÏàÆ¥Åä
+                // æ£€æŸ¥ç¢°æ’ä½“çš„æ ‡ç­¾æ˜¯å¦ä¸åˆ—è¡¨ä¸­çš„æŸä¸ªæ ‡ç­¾ç›¸åŒ¹é…
                 if (hitCollider.CompareTag(PotionName[i]))
                 {
-                    // Èç¹ûÆ¥Åä£¬ÏàÓ¦±êÇ©µÄÊıÁ¿¼ÓÒ»
+                    // å¦‚æœåŒ¹é…ï¼Œç›¸åº”æ ‡ç­¾çš„æ•°é‡åŠ ä¸€
                     PotionCount[i]++;
-                    break; // Æ¥Åä³É¹¦ºóÌø³öÑ­»·
+                    break; // åŒ¹é…æˆåŠŸåè·³å‡ºå¾ªç¯
                 }
             }
         }
@@ -83,46 +83,46 @@ public class IngredientManager : MonoBehaviour
 
     public void GeneratePotion()
     {
-        // Ê¹ÓÃPhysics.OverlapSphere»ñÈ¡Ö¸¶¨°ë¾¶ÄÚµÄËùÓĞÅö×²Ìå
+        // ä½¿ç”¨Physics.OverlapSphereè·å–æŒ‡å®šåŠå¾„å†…çš„æ‰€æœ‰ç¢°æ’ä½“
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, Radius);
 
         foreach (var hitCollider in hitColliders)
         {
             for (int i = 0; i < PotionName.Count; i++)
             {
-                // ¼ì²éÅö×²ÌåµÄ±êÇ©ÊÇ·ñÓëÁĞ±íÖĞµÄÄ³¸ö±êÇ©ÏàÆ¥Åä
+                // æ£€æŸ¥ç¢°æ’ä½“çš„æ ‡ç­¾æ˜¯å¦ä¸åˆ—è¡¨ä¸­çš„æŸä¸ªæ ‡ç­¾ç›¸åŒ¹é…
                 if (hitCollider.CompareTag(FragName[i]))
                 {
-                    // Èç¹ûÆ¥Åä£¬ÏàÓ¦±êÇ©µÄÊıÁ¿¼ÓÒ»
+                    // å¦‚æœåŒ¹é…ï¼Œç›¸åº”æ ‡ç­¾çš„æ•°é‡åŠ ä¸€
                     FragCount[i]++;
-                    //ÕâÀïºóĞø¸Ä³ÉÍ¬²½destroy
+                    //è¿™é‡Œåç»­æ”¹æˆåŒæ­¥destroy
                     Destroy(hitCollider.gameObject);
-                    break; // Æ¥Åä³É¹¦ºóÌø³öÑ­»·
+                    break; // åŒ¹é…æˆåŠŸåè·³å‡ºå¾ªç¯
                 }
             }
         }
 
-        if (FragCount[0] >=1 && PotionCount[0] >= 1)
+        if (FragCount[0] >= 1 && PotionCount[0] >= 1)
         {
             PotionGenerated[0] = true;
-            // ¼ÙÉèlistÊÇÄãµÄÕûĞÍÁĞ±í
+            // å‡è®¾listæ˜¯ä½ çš„æ•´å‹åˆ—è¡¨
             FragCount = FragCount.Select(i => 0).ToList();
             PotionCount = PotionCount.Select(i => 0).ToList();
         }
-        else if(FragCount[1] >= 1 && PotionCount[1] >= 1)
+        else if (FragCount[1] >= 1 && PotionCount[1] >= 1)
         {
             PotionGenerated[1] = true;
-            // ¼ÙÉèlistÊÇÄãµÄÕûĞÍÁĞ±í
+            // å‡è®¾listæ˜¯ä½ çš„æ•´å‹åˆ—è¡¨
             FragCount = FragCount.Select(i => 0).ToList();
             PotionCount = PotionCount.Select(i => 0).ToList();
         }
-        else if(FragCount[2] >= 1 && PotionCount[2] >= 1)
+        else if (FragCount[2] >= 1 && PotionCount[2] >= 1)
         {
             PotionGenerated[2] = true;
-            // ¼ÙÉèlistÊÇÄãµÄÕûĞÍÁĞ±í
+            // å‡è®¾listæ˜¯ä½ çš„æ•´å‹åˆ—è¡¨
             FragCount = FragCount.Select(i => 0).ToList();
             PotionCount = PotionCount.Select(i => 0).ToList();
         }
-        
+
     }
 }
