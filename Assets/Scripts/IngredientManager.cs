@@ -15,7 +15,8 @@ public class IngredientManager : MonoBehaviour
     public List<int> PotionCount = new List<int>();
     public List<int> FragCount = new List<int>();
     public List<bool> PotionGenerated = new List<bool>();
-    private float Radius = 3.5f;
+    private float Radius = 1.5f;
+    public bool HasGened = false;
 
     [SerializeField]
     private ActionBasedController _rightController;
@@ -83,26 +84,31 @@ public class IngredientManager : MonoBehaviour
 
     public void GeneratePotion()
     {
+        if (HasGened) return;
+
         Debug.Log("GeneratePotion()");
 
-        // 使用Physics.OverlapSphere获取指定半径内的所有碰撞体
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, Radius);
+        //// 使用Physics.OverlapSphere获取指定半径内的所有碰撞体
+        //Collider[] hitColliders = Physics.OverlapSphere(transform.position, Radius);
 
-        foreach (var hitCollider in hitColliders)
-        {
-            for (int i = 0; i < PotionName.Count; i++)
-            {
-                // 检查碰撞体的标签是否与列表中的某个标签相匹配
-                if (hitCollider.CompareTag(FragName[i]))
-                {
-                    // 如果匹配，相应标签的数量加一
-                    FragCount[i]++;
-                    //这里后续改成同步destroy
-                    Destroy(hitCollider.gameObject);
-                    break; // 匹配成功后跳出循环
-                }
-            }
-        }
+        //foreach (var hitCollider in hitColliders)
+        //{
+        //    for (int i = 0; i < FragName.Count; i++)
+        //    {
+        //        // 检查碰撞体的标签是否与列表中的某个标签相匹配
+        //        if (hitCollider.CompareTag(FragName[i]))
+        //        {
+        //            // 如果匹配，相应标签的数量加一
+        //            FragCount[i]++;
+        //            //这里后续改成同步destroy
+        //            Debug.Log($"i{i} : FragName[i]");
+        //            Destroy(hitCollider.gameObject);
+        //            break; // 匹配成功后跳出循环
+        //        }
+        //    }
+        //}
+
+        HasGened = true;
 
         if (FragCount[0] >= 1 && PotionCount[0] >= 1)
         {
@@ -124,6 +130,10 @@ public class IngredientManager : MonoBehaviour
             // 假设list是你的整型列表
             FragCount = FragCount.Select(i => 0).ToList();
             PotionCount = PotionCount.Select(i => 0).ToList();
+        }
+        else
+        {
+            HasGened = false;
         }
 
     }

@@ -1,11 +1,11 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 /*
- * Èç¹ûÔÙÏë¸ãµÃÕıÈ·Ò»µã¶ù£¬_maxAmontÕâĞ©ĞèÒª¸ù¾İÎïÌåµÄrotation×ö±ä»»
+ * å¦‚æœå†æƒ³æå¾—æ­£ç¡®ä¸€ç‚¹å„¿ï¼Œ_maxAmontè¿™äº›éœ€è¦æ ¹æ®ç‰©ä½“çš„rotationåšå˜æ¢
  */
 public class LiquidEffect : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class LiquidEffect : MonoBehaviour
     public Transform PotionRecharge;
     public Transform CookPot;
     public IngredientManager IngredientManager;
-    
+
     public event Action HasPoured;
 
 
@@ -60,30 +60,30 @@ public class LiquidEffect : MonoBehaviour
         Vector3 forwardDirection = transform.up;
         float dotProduct = Vector3.Dot(forwardDirection, Vector3.up);
 
-        // ÅĞ¶Ï¼Ğ½ÇÊÇ·ñ³¬¹ı90¡ã
+        // åˆ¤æ–­å¤¹è§’æ˜¯å¦è¶…è¿‡90Â°
         if (dotProduct < Mathf.Cos(50 * Mathf.Deg2Rad))
         {
-            //ÏÂÃæµÄÅĞ¶ÏÖ»»á½øÈëÒ»´Î
-            if(Mathf.Abs(_minAmont - _curAmount) <= _step - 0.0005)
+            //ä¸‹é¢çš„åˆ¤æ–­åªä¼šè¿›å…¥ä¸€æ¬¡
+            if (Mathf.Abs(_minAmont - _curAmount) <= _step - 0.0005)
             {
-                //µÚÒ»´Î¿ªÊ¼Çãµ¹£¬ÒòÎªĞı×ª£¬ËùÒÔĞèÒªÔö¼ÓÆ«ÒÆ
-                //ÆäÊµ×îºÃÊÇÆ«ÒÆ¸ú×ÅrotationÂıÂılerpµ½ÕâÀï0.05f
-                //ÊÔÍ¼ĞŞ¸´ÕâÀïÒ»ÏÂ×ÓÇãµ¹×Ü»áÓĞÒ»ÏÂ×Ó±äÂúµÄ´íÎó
+                //ç¬¬ä¸€æ¬¡å¼€å§‹å€¾å€’ï¼Œå› ä¸ºæ—‹è½¬ï¼Œæ‰€ä»¥éœ€è¦å¢åŠ åç§»
+                //å…¶å®æœ€å¥½æ˜¯åç§»è·Ÿç€rotationæ…¢æ…¢lerpåˆ°è¿™é‡Œ0.05f
+                //è¯•å›¾ä¿®å¤è¿™é‡Œä¸€ä¸‹å­å€¾å€’æ€»ä¼šæœ‰ä¸€ä¸‹å­å˜æ»¡çš„é”™è¯¯
                 Debug.Log("FirstBiggerThan50");
                 _curAmount = _minAmont + 0.08f + _step;
-                if(Vector3.Distance(CookPot.position, this.transform.position) < PouredRadius)
+                if (Vector3.Distance(CookPot.position, this.transform.position) < PouredRadius)
                 {
                     if (!hasPoured)
                     {
                         HasPoured?.Invoke();
                         hasPoured = true;
-                    } 
+                    }
                 }
             }
             isPouring = true;
             _curAmount = Mathf.Min(_curAmount + _step, _maxAmont + 0.4f);
             _material.SetFloat("_FillAmount", _curAmount);
-            Debug.Log("ÎïÌåµÄÇ°·½ÓëyÖáµÄ¼Ğ½Ç³¬¹ı90¶È");
+            //Debug.Log("ç‰©ä½“çš„å‰æ–¹ä¸yè½´çš„å¤¹è§’è¶…è¿‡90åº¦");
         }
         else
         {

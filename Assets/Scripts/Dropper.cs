@@ -1,4 +1,4 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using Ubiq.Spawning;
 using UnityEngine;
@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Dropper : MonoBehaviour
 {
-    //这里要换成被抓了而不是单纯的gripped
+    //杩欓噷瑕佹崲鎴愯鎶撲簡鑰屼笉鏄崟绾殑gripped
     public GameObject CookPot;
     public List<GameObject> PotionLists;
     [SerializeField]
@@ -43,17 +43,18 @@ public class Dropper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_isGripped && _isTriggered && !_hasTrggered)
+        if (_isGripped && _isTriggered && !_hasTrggered)
         {
             _hasTrggered = true;
         }
-        else if(_isGripped && !_isTriggered && _hasTrggered)
+        else if (_isGripped && !_isTriggered && _hasTrggered)
         {
             _hasTrggered = false;
             Debug.Log("xishui");
             _hasPotion = true;
+            _ingredientManager.HasGened = false;
         }
-        else if(_isGripped && _isTriggered && _hasPotion)
+        else if (_isGripped && _isTriggered && _hasPotion)
         {
             _hasPotion = false;
             _hasTrggered = false;
@@ -68,9 +69,10 @@ public class Dropper : MonoBehaviour
         for (int i = 0; i < _ingredientManager.PotionGenerated.Count; i++)
         {
             Debug.Log("Dropper GenerateMagicPotion()");
-            // 检查是否需要生成GameObject
+            // 妫�鏌ユ槸鍚﹂渶瑕佺敓鎴怗ameObject
             if (_ingredientManager.PotionGenerated[i] && PotionLists[i] != null)
             {
+
                 GameObject prefab = PotionLists[i];
                 var go = _spawnManager.SpawnWithPeerScope(prefab);
                 go.transform.position = transform.position;
@@ -78,6 +80,6 @@ public class Dropper : MonoBehaviour
             }
         }
 
-        
+
     }
 }

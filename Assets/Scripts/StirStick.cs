@@ -174,9 +174,9 @@ public class StirStick : MonoBehaviour
         {
             isOwner = false;
             token = message.token;
-            Debug.Log("WandToken" + token);
+            //Debug.Log("WandToken" + token);
             GetComponent<Rigidbody>().isKinematic = true;
         }
-        Debug.Log(gameObject.name + " Updated");
+        //Debug.Log(gameObject.name + " Updated");
     }
 }
