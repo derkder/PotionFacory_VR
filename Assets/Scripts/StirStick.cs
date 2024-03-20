@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Ubiq.Spawning;
@@ -7,23 +7,23 @@ using Ubiq.Messaging;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
-//¸æËß¹øºÍÁ£×Ó£¬¹øÓÐÃ»ÓÐ±»½Á¶¯
-//Ö»ÓÐ½Á°èµÄÈËµÄ¹ø¿ÉÒÔ»áÓÐÒ©Ë®
-//µ«ÊÇÒ©Ë®Éú³öÀ´Ö®ºóÁ½¸öÈË¶¼¿ÉÒÔºÈ
+//å‘Šè¯‰é”…å’Œç²’å­ï¼Œé”…æœ‰æ²¡æœ‰è¢«æ…åŠ¨
+//åªæœ‰æ…æ‹Œçš„äººçš„é”…å¯ä»¥ä¼šæœ‰è¯æ°´
+//ä½†æ˜¯è¯æ°´ç”Ÿå‡ºæ¥ä¹‹åŽä¸¤ä¸ªäººéƒ½å¯ä»¥å–
 public class StirStick : MonoBehaviour
 {
     public bool IsStiring;
     public GameObject PotParticle;
-    public bool isCoroutineRunning; // ÓÃÓÚ×·×ÙÐ­³ÌÊÇ·ñÕýÔÚÔËÐÐ
+    public bool isCoroutineRunning; // ç”¨äºŽè¿½è¸ªåç¨‹æ˜¯å¦æ­£åœ¨è¿è¡Œ
     public event Action OnPotionMade;
 
     public int token;
     public bool isOwner;
 
-    // ´ÓInspectorÖÐ·ÖÅäInputActionAsset
+    // ä»ŽInspectorä¸­åˆ†é…InputActionAsset
     [SerializeField]
     private GameObject _pot;
-    [SerializeField] 
+    [SerializeField]
     private InputActionAsset _actionAsset;
     private InputAction _selectAction;
     private Vector3 _lastPosition;
@@ -32,7 +32,7 @@ public class StirStick : MonoBehaviour
     //private float _accumulateTime = 0;
     NetworkContext context;
     private NetworkSpawnManager _spawnManager;
-    
+
 
     XRGrabInteractable interactable;
     private float _accumulateTime = 0;
@@ -84,7 +84,7 @@ public class StirStick : MonoBehaviour
             if (Vector3.Distance(currentPosition, _lastPosition) > 0.1f
                     && this.transform.rotation.x >= -50 && this.transform.rotation.x <= 50
                     && this.transform.rotation.z >= -50 && this.transform.rotation.z <= 50
-                        && Vector3.Distance(this.transform.position, _pot.transform.position) < 3f) // ¼ì²éÊÖ±úÊÇ·ñÓÐ×ã¹»µÄÒÆ¶¯
+                        && Vector3.Distance(this.transform.position, _pot.transform.position) < 3f) // æ£€æŸ¥æ‰‹æŸ„æ˜¯å¦æœ‰è¶³å¤Ÿçš„ç§»åŠ¨
             {
                 isStiring();
             }
@@ -92,7 +92,7 @@ public class StirStick : MonoBehaviour
             {
                 stopStiring();
             }
-            // ¸üÐÂ×îºóµÄÎ»ÖÃ
+            // æ›´æ–°æœ€åŽçš„ä½ç½®
             _lastPosition = currentPosition;
         }
         else
@@ -111,24 +111,25 @@ public class StirStick : MonoBehaviour
 
     private void isStiring()
     {
-        //Õâ¸öisCoroutineRunningÈ·±£ÁËÖ®Ç°µÄÒ»Ö±¿ÛhpÏÖÏó²»»á·¢Éú£¡
+        //è¿™ä¸ªisCoroutineRunningç¡®ä¿äº†ä¹‹å‰çš„ä¸€ç›´æ‰£hpçŽ°è±¡ä¸ä¼šå‘ç”Ÿï¼
         if (!IsStiring && !isCoroutineRunning)
         {
-            StartCoroutine(SetBoolFalseAfterTime(0.7f)); // Æô¶¯Ð­³Ì£¬±£³Ö²¼¶ûÖµÎªÕæ1Ãë
+            StartCoroutine(SetBoolFalseAfterTime(0.7f)); // å¯åŠ¨åç¨‹ï¼Œä¿æŒå¸ƒå°”å€¼ä¸ºçœŸ1ç§’
         }
     }
 
     IEnumerator SetBoolFalseAfterTime(float time)
     {
         IsStiring = true;
-        isCoroutineRunning = true; // ±ê¼ÇÐ­³Ì¿ªÊ¼ÔËÐÐ
-        yield return new WaitForSeconds(time); // µÈ´ýÖ¸¶¨µÄÊ±¼ä
-        IsStiring = false; // ½«²¼¶ûÖµÉèÖÃÎª¼Ù
-        isCoroutineRunning = false; // ±ê¼ÇÐ­³Ì½áÊøÔËÐÐ
+        isCoroutineRunning = true; // æ ‡è®°åç¨‹å¼€å§‹è¿è¡Œ
+        yield return new WaitForSeconds(time); // ç­‰å¾…æŒ‡å®šçš„æ—¶é—´
+        IsStiring = false; // å°†å¸ƒå°”å€¼è®¾ç½®ä¸ºå‡
+        isCoroutineRunning = false; // æ ‡è®°åç¨‹ç»“æŸè¿è¡Œ
         _accumulateTime += 0.2f;
-        if(_accumulateTime >= 1f)
+        if (_accumulateTime >= 1f)
         {
             _accumulateTime = 0;
+            Debug.Log("OnPotionMade?.Invoke();");
             OnPotionMade?.Invoke();
         }
     }

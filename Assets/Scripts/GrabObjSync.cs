@@ -1,12 +1,12 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Ubiq.Messaging;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-//ÄÜ×¥È¡µÄÎïÌå¹ÒÔØ¾Í»áÊµÏÖÎ»ÖÃÍ¬²½
-//ÕâÀïÍ¬²½±»ÎÒĞ´³ÉasyncÁË£¬µ«ÊÇ¸ÄÆğÀ´ÊµÔÚÌ«Âé·³ÁË¾ÍÏÈÕâÃ´µÎ°É
-public class GrabObjAsync : MonoBehaviour
+//èƒ½æŠ“å–çš„ç‰©ä½“æŒ‚è½½å°±ä¼šå®ç°ä½ç½®åŒæ­¥
+//è¿™é‡ŒåŒæ­¥è¢«æˆ‘å†™æˆasyncäº†ï¼Œä½†æ˜¯æ”¹èµ·æ¥å®åœ¨å¤ªéº»çƒ¦äº†å°±å…ˆè¿™ä¹ˆæ»´å§
+public class GrabObjSync : MonoBehaviour
 {
     XRGrabInteractable interactable;
     NetworkContext context;
@@ -15,7 +15,7 @@ public class GrabObjAsync : MonoBehaviour
     public int token;
     public bool isOwner;
 
-    //GameObjectÒ»¿ªÊ¼ÊÇ·ñ¿ªÆôisKinematic
+    //GameObjectä¸€å¼€å§‹æ˜¯å¦å¼€å¯isKinematic
     private bool _isKinematic;
 
     void Start()
@@ -29,7 +29,7 @@ public class GrabObjAsync : MonoBehaviour
         isOwner = true;
     }
 
-    //Í¬²½destroyËùÓĞ¶ËµÄÕâ¸öÎïÌå
+    //åŒæ­¥destroyæ‰€æœ‰ç«¯çš„è¿™ä¸ªç‰©ä½“
     public void DestroySync()
     {
         TakeOwnership();
@@ -39,7 +39,7 @@ public class GrabObjAsync : MonoBehaviour
         m.getDestroy = true;
         context.SendJson(m);
         Debug.Log("grab sync destroy");
-        //isOwnerÃ²ËÆ¾Í²»½ÓÊÜÏûÏ¢ÁË
+        //isOwnerè²Œä¼¼å°±ä¸æ¥å—æ¶ˆæ¯äº†
         Destroy(gameObject);
     }
 

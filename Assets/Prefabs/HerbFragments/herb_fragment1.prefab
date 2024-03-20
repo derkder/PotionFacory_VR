@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -3710464791091750670}
   m_Layer: 0
   m_Name: herb_fragment1
-  m_TagString: fragA
+  m_TagString: fragB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 846208899062065728}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1

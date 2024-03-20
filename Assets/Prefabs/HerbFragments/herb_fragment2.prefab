@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8030052946463926935}
   m_Layer: 0
   m_Name: herb_fragment2
-  m_TagString: fragB
+  m_TagString: fragA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

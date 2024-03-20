@@ -15,7 +15,7 @@ public class IngredientManager : MonoBehaviour
     public List<int> PotionCount = new List<int>();
     public List<int> FragCount = new List<int>();
     public List<bool> PotionGenerated = new List<bool>();
-    public float Radius = 2.7f;
+    private float Radius = 3.5f;
 
     [SerializeField]
     private ActionBasedController _rightController;
@@ -83,6 +83,8 @@ public class IngredientManager : MonoBehaviour
 
     public void GeneratePotion()
     {
+        Debug.Log("GeneratePotion()");
+
         // 使用Physics.OverlapSphere获取指定半径内的所有碰撞体
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, Radius);
 
