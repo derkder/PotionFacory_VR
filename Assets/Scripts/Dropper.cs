@@ -18,9 +18,9 @@ public class Dropper : MonoBehaviour
     private InputAction _triggerAction;
     private NetworkSpawnManager _spawnManager;
     private bool _isGripped;
-    private bool _isTriggered;
-    private bool _hasTrggered;
-    private bool _hasPotion;
+    public bool _isTriggered;
+    public bool _hasTrggered;
+    public bool _hasPotion;
 
     // Start is called before the first frame update
     void Start()
@@ -43,11 +43,12 @@ public class Dropper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_isGripped && _isTriggered && !_hasTrggered)
+        if (_isGripped && _isTriggered && !_hasTrggered && !_hasPotion && _ingredientManager.HasGened)
         {
             _hasTrggered = true;
+            Debug.Log("前一次按下");
         }
-        else if (_isGripped && !_isTriggered && _hasTrggered)
+        else if (_isGripped && !_isTriggered && _hasTrggered && _ingredientManager.HasGened)
         {
             _hasTrggered = false;
             Debug.Log("xishui");
@@ -59,7 +60,6 @@ public class Dropper : MonoBehaviour
             _hasPotion = false;
             _hasTrggered = false;
             Debug.Log("fangshui");
-
             GenerateMagicPotion();
         }
     }
