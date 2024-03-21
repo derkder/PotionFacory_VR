@@ -114,6 +114,7 @@ public class StirStick : MonoBehaviour
         //这个isCoroutineRunning确保了之前的一直扣hp现象不会发生！
         if (!IsStiring && !isCoroutineRunning)
         {
+            AudioManager.Instance.PlaySFX(SfxType.Stir);
             StartCoroutine(SetBoolFalseAfterTime(0.7f)); // 启动协程，保持布尔值为真1秒
         }
     }

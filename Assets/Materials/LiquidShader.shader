@@ -1,4 +1,4 @@
-Shader "Custom/LiquidBottle"
+ï»¿Shader "Custom/LiquidBottle"
 {
     Properties
     {
@@ -14,7 +14,7 @@ Shader "Custom/LiquidBottle"
         _RimColor("RimColor",Color)=(1,1,1,1)
         _RimWidth("RimWidth",float)=0.2
 
-        //È¥µôÎïÌå×ÔÉíÎ»ÖÃ´øÀ´µÄÓ°Ïì
+        //å»æ‰ç‰©ä½“è‡ªèº«ä½ç½®å¸¦æ¥çš„å½±å“
         _WorldCoordY("WorldCoordY",float)=0.
 
     }
@@ -75,13 +75,13 @@ Shader "Custom/LiquidBottle"
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 UNITY_TRANSFER_FOG(o,o.vertex);
 
-                //ÊÔÍ¼ĞŞÕıÇãµ¹ºóÒºÌå±ä¶à
-                //float angle = dot(normalize(v.normal), float3(0, 1, 0)); // ¼ÆËã·¨ÏßÓëÈ«¾ÖÉÏ·½µÄ¼Ğ½Ç
-                //o.fillEdge = mul(unity_ObjectToWorld, v.vertex.xyz).y + _FillAmount * angle; // ¸ù¾İ¼Ğ½Çµ÷Õû_fillEdgeµÄ¼ÆËã
+                //è¯•å›¾ä¿®æ­£å€¾å€’åæ¶²ä½“å˜å¤š
+                //float angle = dot(normalize(v.normal), float3(0, 1, 0)); // è®¡ç®—æ³•çº¿ä¸å…¨å±€ä¸Šæ–¹çš„å¤¹è§’
+                //o.fillEdge = mul(unity_ObjectToWorld, v.vertex.xyz).y + _FillAmount * angle; // æ ¹æ®å¤¹è§’è°ƒæ•´_fillEdgeçš„è®¡ç®—
 
-                //ÕâÀï´¦ÀíµÄÒ»µã¶ùÒ²²»ºÃ
-                //±¾À´Ïë×Ô¼ºÓÃ±ÈÂÊ×öµÄ£¬µ«ÊÇÏëÏë¾ÍÓĞºÜ¶àÎÊÌâÎÒ»¹ÊÇÏÈ´ÕºÏÒ»ÏÂ°É
-                //float3x3ĞŞÕıÊÀ½ç¿Õ¼ä×ø±ê¹Ò¹³µÄÎÊÌâ
+                //è¿™é‡Œå¤„ç†çš„ä¸€ç‚¹å„¿ä¹Ÿä¸å¥½
+                //æœ¬æ¥æƒ³è‡ªå·±ç”¨æ¯”ç‡åšçš„ï¼Œä½†æ˜¯æƒ³æƒ³å°±æœ‰å¾ˆå¤šé—®é¢˜æˆ‘è¿˜æ˜¯å…ˆå‡‘åˆä¸€ä¸‹å§
+                //float3x3ä¿®æ­£ä¸–ç•Œç©ºé—´åæ ‡æŒ‚é’©çš„é—®é¢˜
                 o.fillEdge=mul((float3x3)unity_ObjectToWorld,v.vertex.xyz).y+_FillAmount;
                 //o.fillEdge=mul(unity_ObjectToWorld,v.vertex.xyz).y+_FillAmount;
                 o.normal=v.normal;

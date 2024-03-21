@@ -40,6 +40,7 @@ public class EyeBall : MonoBehaviour
         {
             if (_rightController)
             {
+                AudioManager.Instance.PlaySFX(SfxType.Expolode);
                 if (_rightController.SendHapticImpulse(0.5f, 1))
                 {
                     print("success");

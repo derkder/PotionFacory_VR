@@ -66,6 +66,7 @@ public class LiquidEffect : MonoBehaviour
             //下面的判断只会进入一次
             if (Mathf.Abs(_minAmont - _curAmount) <= _step - 0.0005)
             {
+                AudioManager.Instance.PlaySFX(SfxType.Pour);
                 //第一次开始倾倒，因为旋转，所以需要增加偏移
                 //其实最好是偏移跟着rotation慢慢lerp到这里0.05f
                 //试图修复这里一下子倾倒总会有一下子变满的错误

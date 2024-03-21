@@ -72,7 +72,7 @@ public class Dropper : MonoBehaviour
             // 检查是否需要生成GameObject
             if (_ingredientManager.PotionGenerated[i] && PotionLists[i] != null)
             {
-
+                AudioManager.Instance.PlaySFX(SfxType.Generate);
                 GameObject prefab = PotionLists[i];
                 var go = _spawnManager.SpawnWithPeerScope(prefab);
                 go.transform.position = transform.position;
