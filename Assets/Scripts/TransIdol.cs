@@ -1,4 +1,4 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,7 +7,7 @@ using static SIPSorcery.Net.Mjpeg;
 
 public class TransIdol : MonoBehaviour
 {
-    public float radius = 3f; // 检测的半径
+    public float radius = 3f;
 
     [SerializeField]
     private InputActionAsset _actionAsset;
@@ -21,7 +21,7 @@ public class TransIdol : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
 
@@ -29,12 +29,10 @@ public class TransIdol : MonoBehaviour
     // Update is called once per frame
     private void OnXButtonPressed(InputAction.CallbackContext context)
     {
-        // 使用Physics.OverlapSphere获取指定半径内的所有碰撞体
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach (var hitCollider in hitColliders)
         {
-            // 检查碰撞体的标签是否与列表中的某个标签相匹配
             if (hitCollider.CompareTag("Player"))
             {
                 GameManager.Instance.Transport();

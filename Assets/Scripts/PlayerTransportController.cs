@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -21,7 +21,6 @@ public class PlayerTransportController : MonoBehaviour
 
     private void OnDestroy()
     {
-        // «Â¿Ì£¨±‹√‚ƒ⁄¥Ê–π¬©
         //_buttonXPressed.performed -= OnXButtonPressed;
         //_buttonYPressed.performed -= OnYButtonPressed;
     }

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-//两边的眼球是同步发生爆炸的！所以这里不需要搞同步
-//但是实机跑的时候就没有，我吐了
 public class EyeBall : MonoBehaviour
 {
     public bool HasExploded;
@@ -55,7 +53,6 @@ public class EyeBall : MonoBehaviour
 
     IEnumerator WaitAndDestroy()
     {
-        //等待一会儿之后销毁眼球特效
         yield return new WaitForSeconds(1f);
         _particleEffect.SetActive(false);
     }

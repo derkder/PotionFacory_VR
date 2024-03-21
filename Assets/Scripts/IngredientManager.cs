@@ -4,10 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-//herb数量不需要同步，药水也不需要，两边的药水有旋转就会给这玩意儿加加
-//需要同步的: 有没有被搅动， 干脆别同步了这里，到时候做的人拿到药水，生成一个两边有的就可以了
 
-//这里一人一个Manager，但是生成之后，要保证两边的草药都消失掉了
 public class IngredientManager : MonoBehaviour
 {
     public List<string> PotionName = new List<string>();
@@ -61,49 +58,42 @@ public class IngredientManager : MonoBehaviour
     }
 
 
-    //这里有一个人的列表被更新了就可以了
     public void PotionNumUpdate()
     {
-        // 使用Physics.OverlapSphere获取指定半径内的所有碰撞体
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, Radius);
 
         foreach (var hitCollider in hitColliders)
         {
             for (int i = 0; i < PotionName.Count; i++)
             {
-                // 检查碰撞体的标签是否与列表中的某个标签相匹配
                 if (hitCollider.CompareTag(PotionName[i]))
                 {
-                    // 如果匹配，相应标签的数量加一
                     PotionCount[i]++;
-                    break; // 匹配成功后跳出循环
+                    break;
                 }
             }
         }
     }
 
+  
     public void GeneratePotion()
     {
         if (HasGened) return;
-
         Debug.Log("GeneratePotion()");
 
-        //// 使用Physics.OverlapSphere获取指定半径内的所有碰撞体
+
         //Collider[] hitColliders = Physics.OverlapSphere(transform.position, Radius);
 
         //foreach (var hitCollider in hitColliders)
         //{
         //    for (int i = 0; i < FragName.Count; i++)
         //    {
-        //        // 检查碰撞体的标签是否与列表中的某个标签相匹配
         //        if (hitCollider.CompareTag(FragName[i]))
         //        {
-        //            // 如果匹配，相应标签的数量加一
         //            FragCount[i]++;
-        //            //这里后续改成同步destroy
         //            Debug.Log($"i{i} : FragName[i]");
         //            Destroy(hitCollider.gameObject);
-        //            break; // 匹配成功后跳出循环
+        //            break; 
         //        }
         //    }
         //}
@@ -113,21 +103,18 @@ public class IngredientManager : MonoBehaviour
         if (FragCount[0] >= 1 && PotionCount[0] >= 1)
         {
             PotionGenerated[0] = true;
-            // 假设list是你的整型列表
             FragCount = FragCount.Select(i => 0).ToList();
             PotionCount = PotionCount.Select(i => 0).ToList();
         }
         else if (FragCount[1] >= 1 && PotionCount[1] >= 1)
         {
             PotionGenerated[1] = true;
-            // 假设list是你的整型列表
             FragCount = FragCount.Select(i => 0).ToList();
             PotionCount = PotionCount.Select(i => 0).ToList();
         }
         else if (FragCount[2] >= 1 && PotionCount[2] >= 1)
         {
             PotionGenerated[2] = true;
-            // 假设list是你的整型列表
             FragCount = FragCount.Select(i => 0).ToList();
             PotionCount = PotionCount.Select(i => 0).ToList();
         }

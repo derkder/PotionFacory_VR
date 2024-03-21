@@ -4,8 +4,7 @@ using Ubiq.Messaging;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-//能抓取的物体挂载就会实现位置同步
-//这里同步被我写成async了，但是改起来实在太麻烦了就先这么滴吧
+// used as a component
 public class GrabObjSync : MonoBehaviour
 {
     XRGrabInteractable interactable;
@@ -15,7 +14,7 @@ public class GrabObjSync : MonoBehaviour
     public int token;
     public bool isOwner;
 
-    //GameObject一开始是否开启isKinematic
+    // save the initial state
     private bool _isKinematic;
 
     void Start()
@@ -27,9 +26,10 @@ public class GrabObjSync : MonoBehaviour
         context = NetworkScene.Register(this);
         token = Random.Range(1, 10000);
         isOwner = true;
+        _isKinematic = GetComponent<Rigidbody>().isKinematic;
     }
 
-    //同步destroy所有端的这个物体
+    // sync destroy
     public void DestroySync()
     {
         TakeOwnership();
@@ -39,14 +39,12 @@ public class GrabObjSync : MonoBehaviour
         m.getDestroy = true;
         context.SendJson(m);
         Debug.Log("grab sync destroy");
-        //isOwner貌似就不接受消息了
+        // caouse owner doesnt receive message
         Destroy(gameObject);
     }
 
     void OnPickedUp(SelectEnterEventArgs ev)
     {
-        _isKinematic = GetComponent<Rigidbody>().isKinematic;
-        Debug.Log("Picked up");
         TakeOwnership();
     }
 

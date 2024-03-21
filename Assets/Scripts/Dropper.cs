@@ -7,7 +7,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Dropper : MonoBehaviour
 {
-    //这里要换成被抓了而不是单纯的gripped
     public GameObject CookPot;
     public List<GameObject> PotionLists;
     [SerializeField]
@@ -46,12 +45,11 @@ public class Dropper : MonoBehaviour
         if (_isGripped && _isTriggered && !_hasTrggered && !_hasPotion && _ingredientManager.HasGened)
         {
             _hasTrggered = true;
-            Debug.Log("前一次按下");
         }
         else if (_isGripped && !_isTriggered && _hasTrggered && _ingredientManager.HasGened)
         {
             _hasTrggered = false;
-            Debug.Log("xishui");
+            Debug.Log("absorb");
             _hasPotion = true;
             _ingredientManager.HasGened = false;
         }
@@ -59,7 +57,7 @@ public class Dropper : MonoBehaviour
         {
             _hasPotion = false;
             _hasTrggered = false;
-            Debug.Log("fangshui");
+            Debug.Log("release");
             GenerateMagicPotion();
         }
     }
@@ -69,7 +67,6 @@ public class Dropper : MonoBehaviour
         for (int i = 0; i < _ingredientManager.PotionGenerated.Count; i++)
         {
             Debug.Log("Dropper GenerateMagicPotion()");
-            // 检查是否需要生成GameObject
             if (_ingredientManager.PotionGenerated[i] && PotionLists[i] != null)
             {
                 AudioManager.Instance.PlaySFX(SfxType.Generate);

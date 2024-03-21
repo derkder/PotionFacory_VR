@@ -1,10 +1,9 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ubiq.Messaging;
 using UnityEngine.XR.Interaction.Toolkit;
 
-//同步烧瓶的位置和液体的量
 public class PotionSync : MonoBehaviour
 {
     XRGrabInteractable interactable;
@@ -17,6 +16,7 @@ public class PotionSync : MonoBehaviour
     private struct Message
     {
         public Vector3 position;
+        public Quaternion rotation;
         public bool hasPooled;
         public float curAmount;
         public int token;
@@ -43,7 +43,6 @@ public class PotionSync : MonoBehaviour
     void OnDropped(SelectExitEventArgs ev)
     {
         Debug.Log("Dropped");
-        //运动由引擎控制
         GetComponent<Rigidbody>().isKinematic = false;
 
     }
@@ -60,6 +59,7 @@ public class PotionSync : MonoBehaviour
         {
             Message m = new Message();
             m.position = this.transform.position;
+            m.rotation = this.transform.rotation;
             m.token = token;
             m.curAmount = le._curAmount;
             context.SendJson(m);
@@ -70,6 +70,7 @@ public class PotionSync : MonoBehaviour
     {
         var message = m.FromJson<Message>();
         transform.position = message.position;
+        transform.rotation = message.rotation;
         le._curAmount = message.curAmount;
         if (message.token > token)
         {

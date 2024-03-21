@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5108522537899896917}
   m_Layer: 0
   m_Name: MagicPotion0
-  m_TagString: Untagged
+  m_TagString: Magic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 81

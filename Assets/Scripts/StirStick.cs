@@ -7,20 +7,16 @@ using Ubiq.Messaging;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
-//告诉锅和粒子，锅有没有被搅动
-//只有搅拌的人的锅可以会有药水
-//但是药水生出来之后两个人都可以喝
 public class StirStick : MonoBehaviour
 {
     public bool IsStiring;
     public GameObject PotParticle;
-    public bool isCoroutineRunning; // 用于追踪协程是否正在运行
+    public bool isCoroutineRunning;
     public event Action OnPotionMade;
 
     public int token;
     public bool isOwner;
 
-    // 从Inspector中分配InputActionAsset
     [SerializeField]
     private GameObject _pot;
     [SerializeField]
@@ -84,7 +80,7 @@ public class StirStick : MonoBehaviour
             if (Vector3.Distance(currentPosition, _lastPosition) > 0.1f
                     && this.transform.rotation.x >= -50 && this.transform.rotation.x <= 50
                     && this.transform.rotation.z >= -50 && this.transform.rotation.z <= 50
-                        && Vector3.Distance(this.transform.position, _pot.transform.position) < 3f) // 检查手柄是否有足够的移动
+                        && Vector3.Distance(this.transform.position, _pot.transform.position) < 3f) // check if our controller move enough
             {
                 isStiring();
             }
@@ -92,7 +88,7 @@ public class StirStick : MonoBehaviour
             {
                 stopStiring();
             }
-            // 更新最后的位置
+            // uodate last position
             _lastPosition = currentPosition;
         }
         else
@@ -111,21 +107,20 @@ public class StirStick : MonoBehaviour
 
     private void isStiring()
     {
-        //这个isCoroutineRunning确保了之前的一直扣hp现象不会发生！
         if (!IsStiring && !isCoroutineRunning)
         {
             AudioManager.Instance.PlaySFX(SfxType.Stir);
-            StartCoroutine(SetBoolFalseAfterTime(0.7f)); // 启动协程，保持布尔值为真1秒
+            StartCoroutine(SetBoolFalseAfterTime(0.7f));
         }
     }
 
     IEnumerator SetBoolFalseAfterTime(float time)
     {
         IsStiring = true;
-        isCoroutineRunning = true; // 标记协程开始运行
-        yield return new WaitForSeconds(time); // 等待指定的时间
-        IsStiring = false; // 将布尔值设置为假
-        isCoroutineRunning = false; // 标记协程结束运行
+        isCoroutineRunning = true;
+        yield return new WaitForSeconds(time);
+        IsStiring = false;
+        isCoroutineRunning = false;
         _accumulateTime += 0.2f;
         if (_accumulateTime >= 1f)
         {

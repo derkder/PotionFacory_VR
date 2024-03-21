@@ -14,6 +14,7 @@ TagManager:
   - PotionR
   - PotionG
   - PotionB
+  - Magic
   layers:
   - Default
   - TransparentFX

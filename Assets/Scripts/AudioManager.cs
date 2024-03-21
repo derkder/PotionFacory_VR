@@ -42,7 +42,7 @@ public class AudioManager : Singleton<AudioManager>
         _clip = SfxSource[(int)st];
         _audioSourecSfx.clip = _clip;
         _audioSourecSfx.loop = loop;
-        _audioSourecSfx.volume = 0.7f * musicVolume;
+        _audioSourecSfx.volume = sfxVolume;
         _audioSourecSfx.Play();
     }
 

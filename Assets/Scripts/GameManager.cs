@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//每个玩家一个
 public class GameManager : Singleton<GameManager>
 {
     public bool IsEditorModeOn;
